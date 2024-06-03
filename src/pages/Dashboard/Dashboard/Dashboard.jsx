@@ -33,7 +33,7 @@ const Dashboard = () => {
                       </ul>
                   </div>
                 </div>
-                <div className="flex-1 px-4 lg:px-0 py-12">
+                <div className="flex-1 px-4 lg:px-0  ">
                    <Outlet></Outlet>
                 </div>
             </div>

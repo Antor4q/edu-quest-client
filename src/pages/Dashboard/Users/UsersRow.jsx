@@ -6,7 +6,7 @@ import { TiUserDelete } from "react-icons/ti";
 import useAxios from "../../../hooks/useAxios";
 import Swal from "sweetalert2";
 
-const UsersRow = ({user,index,refetch,isPending}) => {
+const UsersRow = ({user,index,refetch}) => {
     const axiosSecure = useAxios()
     
   
@@ -47,9 +47,7 @@ const UsersRow = ({user,index,refetch,isPending}) => {
           });
        }
     }
-    if(isPending){
-        return <span className="text-5xl font-bold text-center animate-ping">Loading...</span>
-    }
+  
     return (
         <tr>
                 <th>
@@ -81,5 +79,5 @@ UsersRow.propTypes = {
     user : PropTypes.object,
     index : PropTypes.number,
     refetch : PropTypes.func,
-    isPending : PropTypes.bool
+   
 }

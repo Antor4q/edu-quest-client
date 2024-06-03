@@ -7,6 +7,7 @@ import SignIn from "../pages/SignIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import Users from "../pages/Dashboard/Users/Users";
+import Profile from "../pages/Dashboard/Profile/Profile";
 
 
 export const router = createBrowserRouter([
@@ -40,9 +41,14 @@ export const router = createBrowserRouter([
       path : "dashboard",
       element: <Dashboard></Dashboard>,
       children: [
+        // admin routes
         {
           path: "users",
           element: <Users></Users>
+        },
+        {
+          path: "profile",
+          element: <Profile></Profile>
         }
       ]
     }

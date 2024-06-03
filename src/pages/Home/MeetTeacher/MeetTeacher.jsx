@@ -30,7 +30,7 @@ const MeetTeacher = () => {
                             <div className="w-80 relative   rounded-full">
                             
                                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
+                                <div className="flex opacity-0 transition-opacity duration-700 hover:opacity-100 z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
                                         <FaFacebook></FaFacebook>
                                     <FaLinkedin></FaLinkedin>
                                     <FaInstagram></FaInstagram>
@@ -47,7 +47,7 @@ const MeetTeacher = () => {
                             <div className="avatar">
                             <div className="w-80 relative  rounded-full">
                                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
+                                <div className="flex opacity-0 transition-opacity duration-700 hover:opacity-100 z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
                                         <FaFacebook></FaFacebook>
                                     <FaLinkedin></FaLinkedin>
                                     <FaInstagram></FaInstagram>
@@ -63,7 +63,7 @@ const MeetTeacher = () => {
                             <div className="avatar">
                             <div className="w-80 relative rounded-full">
                                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
+                                <div className="flex z-10 opacity-0 transition-opacity duration-700 hover:opacity-100 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
                                         <FaFacebook></FaFacebook>
                                     <FaLinkedin></FaLinkedin>
                                     <FaInstagram></FaInstagram>
@@ -80,7 +80,7 @@ const MeetTeacher = () => {
                             <div className="avatar">
                             <div className="w-80 relative rounded-full">
                                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
+                                <div className="flex opacity-0 transition-opacity duration-700 hover:opacity-100 z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
                                         <FaFacebook></FaFacebook>
                                     <FaLinkedin></FaLinkedin>
                                     <FaInstagram></FaInstagram>
@@ -96,7 +96,7 @@ const MeetTeacher = () => {
                             <div className="avatar">
                             <div className="w-80 relative rounded-full">
                                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
+                                <div className="flex opacity-0 transition-opacity duration-700 hover:opacity-100 z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
                                         <FaFacebook></FaFacebook>
                                     <FaLinkedin></FaLinkedin>
                                     <FaInstagram></FaInstagram>
@@ -112,7 +112,7 @@ const MeetTeacher = () => {
                             <div className="avatar">
                             <div className="w-80 relative rounded-full">
                                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
+                                <div className="flex opacity-0 transition-opacity duration-700 hover:opacity-100 z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
                                         <FaFacebook></FaFacebook>
                                     <FaLinkedin></FaLinkedin>
                                     <FaInstagram></FaInstagram>
