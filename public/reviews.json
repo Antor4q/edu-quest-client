@@ -1,0 +1,38 @@
+[
+    {
+        "Feedbacktext": "The course on web development was incredibly comprehensive and easy to follow. ",
+        "Name": "Alice Johnson",
+        "Image": "https://example.com/images/alice.jpg",
+        "Title": "Web Development Bootcamp"
+    },
+    {
+        "Feedbacktext": "I learned so much about data science in just a few weeks! The projects were challenging but rewarding.",
+        "Name": "Michael Smith",
+        "Image": "https://example.com/images/michael.jpg",
+        "Title": "Data Science Masterclass"
+    },
+    {
+        "Feedbacktext": "The digital marketing course was well-structured and the content was up-to-date with the latest trends. ",
+        "Name": "Sarah Williams",
+        "Image": "https://example.com/images/sarah.jpg",
+        "Title": "Digital Marketing 101"
+    },
+    {
+        "Feedbacktext": "This graphic design course exceeded my expectations. The tutorials were clear.",
+        "Name": "David Brown",
+        "Image": "https://example.com/images/david.jpg",
+        "Title": "Graphic Design for Beginners"
+    },
+    {
+        "Feedbacktext": "The machine learning course was tough but very rewarding. The hands-on projects helped me .",
+        "Name": "Jessica Miller",
+        "Image": "https://example.com/images/jessica.jpg",
+        "Title": "Machine Learning A-Z"
+    },
+    {
+        "Feedbacktext": "The Python programming course was perfect for beginners. The instructor made the material easy to understand .",
+        "Name": "Daniel Davis",
+        "Image": "https://example.com/images/daniel.jpg",
+        "Title": "Python for Beginners"
+    }
+]
