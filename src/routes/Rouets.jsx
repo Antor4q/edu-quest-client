@@ -8,6 +8,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import Users from "../pages/Dashboard/Users/Users";
 import Profile from "../pages/Dashboard/Profile/Profile";
+import TeacherRequest from "../pages/Dashboard/TeacherRequest/TeacherRequest";
 
 
 export const router = createBrowserRouter([
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
         {
           path: "profile",
           element: <Profile></Profile>
+        },
+        {
+          path: "teacherRequest",
+          element: <TeacherRequest></TeacherRequest>
         }
       ]
     }
