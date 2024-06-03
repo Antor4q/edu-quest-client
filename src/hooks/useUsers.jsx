@@ -8,8 +8,10 @@ const useUsers = () => {
     const {data : users,isPending} = useQuery({
         queryKey : ['users'],
         queryFn: async()=>{
-            const res = axiosSecure.get("/users")
-            return res
+            const res =await axiosSecure.get("/users")
+         
+            return res.data
+           
         }
     })
     return [users,isPending]
