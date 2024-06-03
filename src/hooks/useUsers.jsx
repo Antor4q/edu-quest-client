@@ -5,7 +5,7 @@ import useAxios from "./useAxios";
 const useUsers = () => {
     const axiosSecure = useAxios()
 
-    const {data : users,isPending} = useQuery({
+    const {data : users,isPending,refetch} = useQuery({
         queryKey : ['users'],
         queryFn: async()=>{
             const res =await axiosSecure.get("/users")
@@ -14,7 +14,7 @@ const useUsers = () => {
            
         }
     })
-    return [users,isPending]
+    return [users,isPending,refetch]
 };
 
 export default useUsers;

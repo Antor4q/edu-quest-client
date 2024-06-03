@@ -5,11 +5,10 @@ import { TiUserDelete } from "react-icons/ti";
 
 import useAxios from "../../../hooks/useAxios";
 import Swal from "sweetalert2";
-import { useState } from "react";
 
-const UsersRow = ({user,index}) => {
+const UsersRow = ({user,index,refetch,isPending}) => {
     const axiosSecure = useAxios()
-    const [loading,setLoading] = useState(false)
+    
   
 
     const handleMakeAdmin = async(id) => {
@@ -17,11 +16,12 @@ const UsersRow = ({user,index}) => {
         const role = {
             role : 'Admin'
         }
-        setLoading(true)
+      
         const {data} = await axiosSecure.patch(`/users/${id}`,role)
         
         if(data.modifiedCount){
-            setLoading(false)
+        
+            refetch()
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -33,10 +33,21 @@ const UsersRow = ({user,index}) => {
        
     }
 
-    const handleDelete = id => {
-        console.log(id)
+    
+    const handleDelete = async(id) => {
+        const {data} = await axiosSecure.delete(`/users/${id}`)
+       if(data.deletedCount > 0){
+         refetch()
+         Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "You have successfully delete this user",
+            showConfirmButton: false,
+            timer: 1500
+          });
+       }
     }
-    if(loading){
+    if(isPending){
         return <span className="text-5xl font-bold text-center animate-ping">Loading...</span>
     }
     return (
@@ -68,5 +79,7 @@ const UsersRow = ({user,index}) => {
 export default UsersRow;
 UsersRow.propTypes = {
     user : PropTypes.object,
-    index : PropTypes.number
+    index : PropTypes.number,
+    refetch : PropTypes.func,
+    isPending : PropTypes.bool
 }
