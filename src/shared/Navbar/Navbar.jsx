@@ -35,7 +35,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">
                         {nav}
                     </ul>
-            </div>
+                </div>
             </div>
           
             <div className="navbar-end">

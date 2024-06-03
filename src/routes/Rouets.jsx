@@ -6,6 +6,7 @@ import TechOnSkillPath from "../pages/TechOnSkillPath/TechOnSkillPath";
 import SignIn from "../pages/SignIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import Users from "../pages/Dashboard/Users/Users";
 
 
 export const router = createBrowserRouter([
@@ -37,7 +38,13 @@ export const router = createBrowserRouter([
     },
     {
       path : "dashboard",
-      element: <Dashboard></Dashboard>
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: "users",
+          element: <Users></Users>
+        }
+      ]
     }
   ]);
 
