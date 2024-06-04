@@ -41,7 +41,8 @@ const TechOnSkillPath = () => {
             email : user?.email,
             experience : data.experience,
             category : data.experience,
-            title : data.title
+            title : data.title,
+            status : 'Pending'
         }
         console.log(teacher)
         mutateAsync(teacher)

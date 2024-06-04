@@ -15,7 +15,7 @@ const TeacherRequest = () => {
             return res
         }
     })
-    console.log(data?.data)
+   
     return (
         <div>
            
