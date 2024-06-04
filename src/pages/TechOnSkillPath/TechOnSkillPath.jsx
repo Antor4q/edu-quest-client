@@ -48,7 +48,7 @@ const TechOnSkillPath = () => {
         formData.append('image', data.image[0])
        try{
         const {data : url} = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`,formData)
-        console.log(url?.data?.display_url)
+      
         const teacher = {
             name : data.name,
             image : url?.data?.display_url ? url?.data?.display_url : user.photoURL,
@@ -58,7 +58,7 @@ const TechOnSkillPath = () => {
             title : data.title,
             status : 'Pending'
         }
-        console.log(teacher)
+        
         mutateAsync(teacher)
        }
        catch (err){

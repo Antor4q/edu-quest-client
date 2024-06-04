@@ -24,7 +24,7 @@ const Dashboard = () => {
                         <Link to="/" className="text-xl lg:hidden font-bold">SkillPath</Link>
                         </div>
 
-                <div className="w-[340px] lg:block hidden px-9 py-12 bg-pink-100 h-screen">
+                <div className="w-[340px] lg:block hidden  px-9 py-12 bg-pink-100 ">
                         
                  <Link to="/" className="text-3xl">SkillPath</Link>
                   <div className="mt-5">
