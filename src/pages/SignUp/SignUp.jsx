@@ -12,7 +12,7 @@ const SignUp = () => {
     const {signUp,profileUpdate} = useAuth()
     const axiosPublic = useAxios()
     
-      const {register,handleSubmit,formState: { errors },} = useForm()
+      const {register,handleSubmit,reset,formState: { errors },} = useForm()
 
       const {mutateAsync} = useMutation({
         mutationFn : async(userData) => {
@@ -20,6 +20,7 @@ const SignUp = () => {
             return dat
         },
         onSuccess : ()=> {
+            reset()
             Swal.fire({
                 position: "top-end",
                 icon: "success",

@@ -9,6 +9,7 @@ import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import Users from "../pages/Dashboard/Users/Users";
 import Profile from "../pages/Dashboard/Profile/Profile";
 import TeacherRequest from "../pages/Dashboard/TeacherRequest/TeacherRequest";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -26,7 +27,7 @@ export const router = createBrowserRouter([
         },
         {
             path: "techOn",
-            element: <TechOnSkillPath></TechOnSkillPath>
+            element: <PrivateRoute><TechOnSkillPath></TechOnSkillPath></PrivateRoute>
         },
         {
           path: "signIn",
@@ -40,7 +41,7 @@ export const router = createBrowserRouter([
     },
     {
       path : "dashboard",
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         // admin routes
         {

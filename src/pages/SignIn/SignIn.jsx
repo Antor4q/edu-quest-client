@@ -1,17 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../shared/SocialLogin";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const SignIn = () => {
-    const {register,handleSubmit,formState: { errors },} = useForm()
+    const {register,handleSubmit,reset,formState: { errors },} = useForm()
     const {signIn} = useAuth()
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location)
+    const navo = location.state || "/"
 
     const onSubmit = async(data) =>{
             await signIn(data.email, data.password)
-            .then(() => {
-               
+            .then((result) => {
+                if(result?.user){
+                    reset()
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "You have successfully submit for review",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                   
+                        navigate(navo,{replace: true})
+                   
+                   }
             })
             .catch((err) => {
                 console.log(err.message)
