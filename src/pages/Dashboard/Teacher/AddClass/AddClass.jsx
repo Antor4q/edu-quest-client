@@ -4,12 +4,14 @@ import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 import useAxios from "../../../../hooks/useAxios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 const AddClass = () => {
     const   {user,loading,setLoading} = useAuth()
     const {register,handleSubmit,reset,formState: { errors },} = useForm()
     const axiosSecure = useAxios()
+    const navigate = useNavigate()
 
     const {mutateAsync,isPending} = useMutation({
         mutationFn : async(course) => {
@@ -26,6 +28,7 @@ const AddClass = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate("/dashboard/my-class")
         }
       })
 

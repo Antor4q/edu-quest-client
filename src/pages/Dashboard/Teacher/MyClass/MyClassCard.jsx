@@ -2,9 +2,37 @@ import PropTypes from "prop-types"
 import { FaEdit } from "react-icons/fa";
 import { FaEye } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
+import Swal from "sweetalert2";
+import useAxios from "../../../../hooks/useAxios";
 
-const MyClassCard = ({cla}) => {
-    const { title ,name, email, price, description, status, image} = cla;
+const MyClassCard = ({cla,refetch}) => {
+    const { title ,name, email, price, description, status, image,_id} = cla;
+    const axiosSecure = useAxios()
+
+    const handleDelete = id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: `You won't be delete ${title} class!`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then(async(result) => {
+            if (result.isConfirmed) {
+                const res = await axiosSecure.delete(`/teachers/${id}`)
+              if(res?.data?.deletedCount > 0){
+                    refetch()
+                       Swal.fire({
+                      title: "Deleted!",
+                      text: `${title}  has been deleted.`,
+                      icon: "success",
+                      timer: 1500
+              });
+                }
+            }
+          });
+    }
     return (
         <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <img className="object-cover w-full h-64" src={image} alt="Article"/>
@@ -30,7 +58,7 @@ const MyClassCard = ({cla}) => {
                 <div className="flex items-center mt-4 justify-evenly">
                         <button disabled={status !== 'Accepted'} className="btn text-lg btn-outline bg-green-500 text-white items-center gap-3"><FaEye></FaEye>See details</button>
                         <button className="btn text-lg btn-outline bg-pink-500 text-white items-center gap-3"><FaEdit></FaEdit>Update</button>
-                        <button className="btn btn-outline text-lg bg-red-500 text-white items-center gap-3"><MdDelete></MdDelete>Delete</button>
+                        <button onClick={()=> handleDelete(_id)} className="btn btn-outline text-lg bg-red-500 text-white items-center gap-3"><MdDelete></MdDelete>Delete</button>
                 </div>
             </div>
         </div>
@@ -40,5 +68,6 @@ const MyClassCard = ({cla}) => {
 
 export default MyClassCard;
 MyClassCard.propTypes = {
-    cla : PropTypes.object
+    cla : PropTypes.object,
+    refetch  : PropTypes.func
 }
