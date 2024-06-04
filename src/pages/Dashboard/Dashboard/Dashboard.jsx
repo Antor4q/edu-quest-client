@@ -11,7 +11,7 @@ const Dashboard = () => {
     const [userRole] = useRole()
    console.log(userRole)
     return (
-        <div className="lg:max-w-[1600px] lg:mx-auto">
+        <div className="lg:max-w-[1700px] lg:mx-auto">
            
             <div className="flex lg:flex-row flex-col ">
                       <div className="dropdown bg-base-300">

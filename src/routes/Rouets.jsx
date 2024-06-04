@@ -12,6 +12,7 @@ import TeacherRequest from "../pages/Dashboard/TeacherRequest/TeacherRequest";
 import PrivateRoute from "./PrivateRoute";
 import AddClass from "../pages/Dashboard/Teacher/AddClass/AddClass";
 import MyClass from "../pages/Dashboard/Teacher/MyClass/MyClass";
+import AdminAllClass from "../pages/Dashboard/AdminAllClass/AdminAllClass";
 
 
 export const router = createBrowserRouter([
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
         {
           path: "teacherRequest",
           element: <TeacherRequest></TeacherRequest>
+        },
+        {
+          path: "all-classes",
+          element: <AdminAllClass></AdminAllClass>
         },
         // teacher routes
         {
