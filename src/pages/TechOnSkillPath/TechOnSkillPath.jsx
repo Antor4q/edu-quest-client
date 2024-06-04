@@ -5,13 +5,18 @@ import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import useAxios from "../../hooks/useAxios";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import { FaArrowRightLong } from "react-icons/fa6";
+import cngt from "../../assets/cngt.png"
 
 const TechOnSkillPath = () => {
     const {user} = useAuth()
     const axiosPublic = useAxios()
-    const {register,handleSubmit,formState: { errors },} = useForm()
+    const {register,handleSubmit,reset,formState: { errors },} = useForm()
+
+
 
     const {mutateAsync} = useMutation({
         mutationFn : async(teacher) => {
@@ -19,6 +24,7 @@ const TechOnSkillPath = () => {
             return dat
         },
         onSuccess : ()=> {
+          reset()
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -29,6 +35,14 @@ const TechOnSkillPath = () => {
         }
       })
 
+      const {data} = useQuery({
+        queryKey : ['teacher'],
+        queryFn : async()=>{
+          const res = await axiosPublic.get(`/teachers/${user?.email}`)
+          return res
+        }
+      })
+   
     const onSubmit = async(data)=>{
         const formData = new FormData()
         formData.append('image', data.image[0])
@@ -55,12 +69,29 @@ const TechOnSkillPath = () => {
         <div className="">
             <div className="bg-no-repeat text-white  h-[400px] backdrop-blur-md mb-16 hero  bg-center bg-cover" style={{backgroundImage: `url(${group})`}} >
             <div className="hero-overlay bg-opacity-60 bg-gray-900"></div>
-            <TitleSection subHeading={'As a new teacher'} heading={'Hey! Lets Be a teacher'} icon={<FaChalkboardTeacher></FaChalkboardTeacher>}></TitleSection>
+           
             </div>
            <div className="h-[600px] max-w-[1420px]  mx-auto">
-            
-              <div className="bg-base-300 w-3/5 mx-auto p-10">
-                  <form onSubmit={handleSubmit(onSubmit)}>
+           <TitleSection subHeading={data?.data?.status === 'Accepted' ?   'Teacher Request Approved':'As a new teacher'} heading={data?.data.status === 'Accepted' ?   'Get Started with Your New Teacher Role':'Hey! Lets Be a teacher'} icon={<FaChalkboardTeacher></FaChalkboardTeacher>}></TitleSection>
+             {  data?.data?.status === 'Accepted' ?  
+               <div className="flex gap-4">
+                     <div className="w-1/2  justify-center flex flex-col items-center  mx-auto">
+                    <p className="font-medium  w-2/3">
+                  {"Congratulations! Your request to become a teacher has been approved. You now have access to the teacher's dashboard to start creating and managing your courses. Thank you for your patience and dedication. We look forward to seeing your positive impact on our community. "}
+                </p>
+                <div className="flex justify-center  mt-5 gap-5">
+                <Link to="/dashboard/add-class" className="btn bg-[#B51B75] hover:btn-outline hover:text-[#B51B75] border-none text-white">Add New Class</Link>
+                <Link to="/dashboard" className="btn btn-outline text-[#FFC107]">
+                Go to Dashboard
+                <FaArrowRightLong /></Link>
+                </div>
+                    </div>
+                    <div className="w-1/2 ">
+                       <img src={cngt} alt="" />
+                    </div>
+               </div>
+               : <div className="bg-base-300 w-3/5 mx-auto p-10">
+                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Name</span>
@@ -112,11 +143,11 @@ const TechOnSkillPath = () => {
                       <label className="flex h-[48px] items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900">
                             <input  {...register("image")}  name="image" type="file" />
                         </label>
-                       <input className="mt-3 btn bg-pink-500 text-white  rounded-lg hover:bg-pink-400" type="submit" value="Submit for review" />
+                       <input disabled={data?.data?.status === 'Rejected'} className="mt-3 btn bg-pink-500 text-white  rounded-lg hover:bg-pink-400" type="submit" value={data?.data?.status === 'Rejected' ? 'Request to another button':'Submit for review'} />
                       </div>
                    
                   </form>
-              </div>
+              </div>}
            </div>
         </div>
     );

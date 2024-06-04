@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import { Autoplay, Pagination } from 'swiper/modules';
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+// import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import useUsers from "../../../hooks/useUsers";
 import { FaPlus } from "react-icons/fa6";
 
@@ -32,20 +32,20 @@ const MeetTeacher = () => {
                         {
                             data?.map(user =>    <SwiperSlide key={user._id}>
                                 <div>
-                                <div className="avatar grid items-center">
+                                <div className="avatar border-8 rounded-full grid items-center">
                                 <div className="w-80  relative   rounded-full">
                                 
                                     <img src={user.image} />
                                     
                                    
                                 </div>
-                                   <div className="relative w-14 h-14 z-50 -mr-24 -mt-40 group inline-block">
-                                        <p className="text-4xl transition-opacity duration-700 cursor-pointer group-hover:opacity-0 p-2 text-white rounded-full z-10 font-bold bg-pink-500"><FaPlus></FaPlus></p>
-                                        <div className="flex opacity-0 transition-opacity duration-700 group-hover:opacity-100 z-10 hover:cursor-pointer  hover:text-pink-600 text-4xl  items-center bottom-10 left-24  gap-3">
+                                   <div  className="relative tooltip w-14 h-14 z-50 -mr-24 -mt-40  " data-tip="Book Consultancy">
+                                        <p className="text-4xl  cursor-pointer  p-2 text-white rounded-full z-10 font-bold bg-pink-500"><FaPlus></FaPlus></p>
+                                        {/* <div className="flex opacity-0 transition-opacity duration-700 group-hover:opacity-100 z-10 hover:cursor-pointer  hover:text-pink-600 text-4xl  items-center bottom-10 left-24  gap-3">
                                             <FaFacebook></FaFacebook>
                                         <FaLinkedin></FaLinkedin>
                                         <FaInstagram></FaInstagram>
-                                     </div>
+                                     </div> */}
                                     </div>
                                    
                                 
