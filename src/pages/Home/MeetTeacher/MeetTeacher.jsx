@@ -5,8 +5,13 @@ import 'swiper/css/navigation';
 import 'swiper/css';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import useUsers from "../../../hooks/useUsers";
+import { FaPlus } from "react-icons/fa6";
 
 const MeetTeacher = () => {
+    const [users] = useUsers()
+     const data = users?.filter(user => user.role !== 'Student')
+    
     return (
         <div className="lg:my-28">
             <div className="lg:max-w-[1440px]  mx-auto">
@@ -24,105 +29,37 @@ const MeetTeacher = () => {
                        
                         modules={[Pagination, Autoplay]}
                     >
-                        <SwiperSlide>
-                            <div>
-                            <div className="avatar ">
-                            <div className="w-80 relative   rounded-full">
-                            
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex opacity-0 transition-opacity duration-700 hover:opacity-100 z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
-                                        <FaFacebook></FaFacebook>
-                                    <FaLinkedin></FaLinkedin>
-                                    <FaInstagram></FaInstagram>
-                                </div>
-                            </div>
-                            
-                            </div>
-                               <h2 className="text-2xl font-bold my-3">Ahmed Antor</h2>
-                               <p className="text-pink-500">Founder & CEO</p>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div>
-                            <div className="avatar">
-                            <div className="w-80 relative  rounded-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex opacity-0 transition-opacity duration-700 hover:opacity-100 z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
-                                        <FaFacebook></FaFacebook>
-                                    <FaLinkedin></FaLinkedin>
-                                    <FaInstagram></FaInstagram>
-                                </div>
-                            </div>
-                            </div>
-                               <h2 className="text-2xl font-bold my-3">Sadiya Rahman</h2>
-                               <p className="text-pink-500">Senior Teacher</p>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div>
-                            <div className="avatar">
-                            <div className="w-80 relative rounded-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex z-10 opacity-0 transition-opacity duration-700 hover:opacity-100 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
-                                        <FaFacebook></FaFacebook>
-                                    <FaLinkedin></FaLinkedin>
-                                    <FaInstagram></FaInstagram>
-                                </div>
+                        {
+                            data?.map(user =>    <SwiperSlide key={user._id}>
+                                <div>
+                                <div className="avatar grid items-center">
+                                <div className="w-80  relative   rounded-full">
                                 
-                            </div>
-                            </div>
-                               <h2 className="text-2xl font-bold my-3">Michel Jon</h2>
-                               <p className="text-pink-500">Senior Teacher</p>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div>
-                            <div className="avatar">
-                            <div className="w-80 relative rounded-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex opacity-0 transition-opacity duration-700 hover:opacity-100 z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
-                                        <FaFacebook></FaFacebook>
-                                    <FaLinkedin></FaLinkedin>
-                                    <FaInstagram></FaInstagram>
+                                    <img src={user.image} />
+                                    
+                                   
                                 </div>
-                            </div>
-                            </div>
-                               <h2 className="text-2xl font-bold my-3">Fahana</h2>
-                               <p className="text-pink-500">Junior Teacher</p>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div>
-                            <div className="avatar">
-                            <div className="w-80 relative rounded-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex opacity-0 transition-opacity duration-700 hover:opacity-100 z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
-                                        <FaFacebook></FaFacebook>
-                                    <FaLinkedin></FaLinkedin>
-                                    <FaInstagram></FaInstagram>
+                                   <div className="relative w-14 h-14 z-50 -mr-24 -mt-40 group inline-block">
+                                        <p className="text-4xl transition-opacity duration-700 cursor-pointer group-hover:opacity-0 p-2 text-white rounded-full z-10 font-bold bg-pink-500"><FaPlus></FaPlus></p>
+                                        <div className="flex opacity-0 transition-opacity duration-700 group-hover:opacity-100 z-10 hover:cursor-pointer  hover:text-pink-600 text-4xl  items-center bottom-10 left-24  gap-3">
+                                            <FaFacebook></FaFacebook>
+                                        <FaLinkedin></FaLinkedin>
+                                        <FaInstagram></FaInstagram>
+                                     </div>
+                                    </div>
+                                   
+                                
                                 </div>
-                            </div>
-                            </div>
-                               <h2 className="text-2xl font-bold my-3">Mariyom</h2>
-                               <p className="text-pink-500">Teacher</p>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div>
-                            <div className="avatar">
-                            <div className="w-80 relative rounded-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                <div className="flex opacity-0 transition-opacity duration-700 hover:opacity-100 z-10 hover:cursor-pointer text-white hover:text-pink-600 text-4xl  items-center bottom-10 left-24 absolute gap-3">
-                                        <FaFacebook></FaFacebook>
-                                    <FaLinkedin></FaLinkedin>
-                                    <FaInstagram></FaInstagram>
+                                   <h2 className="text-2xl font-bold my-3">{user.name}</h2>
+                                   <p className="text-pink-500">{user.role === 'Admin' ? 'Founder & CEO': user.role}</p>
                                 </div>
-                            </div>
-                            </div>
-                               <h2 className="text-2xl font-bold my-3">Safa</h2>
-                               <p className="text-pink-500">Teacher</p>
-                            </div>
-                        </SwiperSlide>
+                            </SwiperSlide>
+                         )
+                        }
+                        
+                     
+                      
+                      
                         
                         
                     </Swiper>
