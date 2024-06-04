@@ -4,6 +4,7 @@ import { FaEye } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxios from "../../../../hooks/useAxios";
+import MyClassModal from "./MyClassModal";
 
 const MyClassCard = ({cla,refetch}) => {
     const { title ,name, email, price, description, status, image,_id} = cla;
@@ -20,7 +21,7 @@ const MyClassCard = ({cla,refetch}) => {
             confirmButtonText: "Yes, delete it!"
           }).then(async(result) => {
             if (result.isConfirmed) {
-                const res = await axiosSecure.delete(`/teachers/${id}`)
+                const res = await axiosSecure.delete(`/classes/${id}`)
               if(res?.data?.deletedCount > 0){
                     refetch()
                        Swal.fire({
@@ -57,7 +58,10 @@ const MyClassCard = ({cla,refetch}) => {
                 </div>
                 <div className="flex items-center mt-4 justify-evenly">
                         <button disabled={status !== 'Accepted'} className="btn text-lg btn-outline bg-green-500 text-white items-center gap-3"><FaEye></FaEye>See details</button>
-                        <button className="btn text-lg btn-outline bg-pink-500 text-white items-center gap-3"><FaEdit></FaEdit>Update</button>
+
+                        <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="btn text-lg btn-outline bg-pink-500 text-white items-center gap-3"><FaEdit></FaEdit>Update</button>
+                        <MyClassModal cla={cla} refetch={refetch}></MyClassModal>
+
                         <button onClick={()=> handleDelete(_id)} className="btn btn-outline text-lg bg-red-500 text-white items-center gap-3"><MdDelete></MdDelete>Delete</button>
                 </div>
             </div>

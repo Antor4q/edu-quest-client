@@ -65,7 +65,7 @@ const AddClass = () => {
     return (
         <div>
             <div className="w-2/3 mx-auto mt-20">
-              <form onSubmit={handleSubmit(onSubmit)}>
+               <form onSubmit={handleSubmit(onSubmit)}>
                      
                     <div className="form-control w-full">
                       <label className="label">
