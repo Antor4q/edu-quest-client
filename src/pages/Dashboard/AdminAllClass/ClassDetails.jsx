@@ -15,8 +15,7 @@ const ClassDetails = () => {
             return res
         }
      })
-    console.log(data?.data)
-     console.log(id.id)
+   
     return (
         <div className="pb-20">
             <div>

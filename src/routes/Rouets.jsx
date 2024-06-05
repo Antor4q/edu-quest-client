@@ -14,6 +14,7 @@ import AddClass from "../pages/Dashboard/Teacher/AddClass/AddClass";
 import MyClass from "../pages/Dashboard/Teacher/MyClass/MyClass";
 import AdminAllClass from "../pages/Dashboard/AdminAllClass/AdminAllClass";
 import ClassDetails from "../pages/Dashboard/AdminAllClass/ClassDetails";
+import Details from "../pages/AllClasses/Details";
 
 
 
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             path: "allClasses",
             element: <AllClasses></AllClasses>
         },
+        {
+          path: "details/:id",
+          element: <Details></Details>
+         },
         {
             path: "techOn",
             element: <PrivateRoute><TechOnSkillPath></TechOnSkillPath></PrivateRoute>
@@ -78,6 +83,7 @@ export const router = createBrowserRouter([
           path: "my-class",
           element: <MyClass></MyClass>
         },
+      //  student routes
        
       ]
     }
