@@ -13,7 +13,7 @@ const MyClass = () => {
     const {data,refetch} = useQuery({
         queryKey: ['class'],
         queryFn: async()=>{
-            const res = await axiosSecure.get(`/classes/${user?.email}`)
+            const res = await axiosSecure.get(`/class/${user?.email}`)
             return res.data
         }
     })

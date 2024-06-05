@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddClass from "../pages/Dashboard/Teacher/AddClass/AddClass";
 import MyClass from "../pages/Dashboard/Teacher/MyClass/MyClass";
 import AdminAllClass from "../pages/Dashboard/AdminAllClass/AdminAllClass";
+import ClassDetails from "../pages/Dashboard/AdminAllClass/ClassDetails";
 
 
 export const router = createBrowserRouter([
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
         {
           path: "all-classes",
           element: <AdminAllClass></AdminAllClass>
+        },
+        {
+          path: "class/:id",
+          element: <ClassDetails></ClassDetails>
         },
         // teacher routes
         {

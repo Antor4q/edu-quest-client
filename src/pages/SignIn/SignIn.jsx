@@ -21,7 +21,7 @@ const SignIn = () => {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "You have successfully submit for review",
+                        title: "You have successfully sign in",
                         showConfirmButton: false,
                         timer: 1500
                       });

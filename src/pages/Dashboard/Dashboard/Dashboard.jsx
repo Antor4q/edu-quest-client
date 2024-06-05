@@ -11,7 +11,7 @@ const Dashboard = () => {
     const [userRole] = useRole()
    console.log(userRole)
     return (
-        <div className="lg:max-w-[1700px] lg:mx-auto">
+        <div className="">
            
             <div className="flex lg:flex-row flex-col ">
                       <div className="dropdown bg-base-300">
@@ -24,7 +24,7 @@ const Dashboard = () => {
                         <Link to="/" className="text-xl lg:hidden font-bold">SkillPath</Link>
                         </div>
 
-                <div className="w-[340px] lg:block hidden  px-9 py-12 bg-pink-100 ">
+                <div className="w-[340px] lg:block hidden   min-h-screen px-9 py-12 bg-pink-100 ">
                         
                  <Link to="/" className="text-3xl">SkillPath</Link>
                   <div className="mt-5">

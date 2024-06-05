@@ -66,7 +66,7 @@ const MyClassCard = ({cla,refetch}) => {
                 </div>
             </div>
         </div>
-    </div>
+        </div>
     );
 };
 

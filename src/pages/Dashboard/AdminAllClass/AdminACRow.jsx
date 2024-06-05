@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import useAxios from "../../../hooks/useAxios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const AdminACRow = ({cla,index,refetch}) => {
     const {title,image, description,status,email,_id} = cla
@@ -50,15 +51,16 @@ const AdminACRow = ({cla,index,refetch}) => {
          <td><button  
             onClick={()=>handleClass(_id, 'Accepted')}
             disabled={status !== 'Pending'}  
-             className={`${status !== 'Pending'  ? 'bg-pink-300' : 'bg-pink-600'} text-white px-4 py-2  rounded-lg`}>{status === 'Pending' ? 'Approved':'Accepted'}</button></td>
+             className={`${status !== 'Pending'  ? 'bg-pink-300' : 'bg-pink-600'} text-white px-4 py-2  rounded-lg`}>{status === 'Accepted' ? 'Accepted' : 'Approved'}</button></td>
 
             <td><button 
                 onClick={()=>handleClass(_id, 'Rejected')}
                 disabled={status !== 'Pending'} 
                 className={`${status !== 'Pending' ? 'bg-red-300' : 'bg-red-600'} text-white px-4 py-2  rounded-lg`}>{status === 'Rejected' ? 'Rejected':'Reject'}</button></td>
-         <td><button
+         <td><Link 
+           to={`/dashboard/class/${_id}`}
             disabled={status !== 'Accepted'}
-            className={`${status !== 'Accepted' ? 'bg-gray-200 ' : 'bg-green-600 text-white'}  px-4 py-2  rounded-lg`}>See progress</button></td>
+            className={`${status !== 'Accepted' ? 'bg-gray-200 ' : 'bg-green-600 text-white'}  px-4 py-2  rounded-lg`}>See progress</Link></td>
         
         </tr>
     );
