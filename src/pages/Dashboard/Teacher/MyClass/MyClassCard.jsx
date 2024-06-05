@@ -6,10 +6,11 @@ import Swal from "sweetalert2";
 import useAxios from "../../../../hooks/useAxios";
 import MyClassModal from "./MyClassModal";
 
+
 const MyClassCard = ({cla,refetch}) => {
     const { title ,name, email, price, description, status, image,_id} = cla;
     const axiosSecure = useAxios()
-
+    
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",

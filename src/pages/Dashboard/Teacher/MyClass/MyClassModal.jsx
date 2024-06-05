@@ -7,6 +7,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const MyClassModal = ({cla,refetch}) => {
+  console.log(cla)
     const { title ,name, email, price, description,image,_id,status} = cla;
     const {register,handleSubmit} = useForm()
     const [toggle,setToggle] = useState(true)
@@ -15,7 +16,7 @@ const MyClassModal = ({cla,refetch}) => {
     const {user} = useAuth()
  
     const onSubmit = async(data) => {
-       
+       console.log(data)
         try{
             if(data?.image?.length > 0){
                 const formData = new FormData()

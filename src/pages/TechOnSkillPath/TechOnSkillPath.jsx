@@ -75,18 +75,19 @@ const TechOnSkillPath = () => {
            <TitleSection subHeading={data?.data?.status === 'Accepted' ?   'Teacher Request Approved':'As a new teacher'} heading={data?.data.status === 'Accepted' ?   'Get Started with Your New Teacher Role':'Hey! Lets Be a teacher'} icon={<FaChalkboardTeacher></FaChalkboardTeacher>}></TitleSection>
              {  data?.data?.status === 'Accepted' ?  
                <div className="flex gap-4">
-                     <div className="w-1/2  justify-center flex flex-col items-center  mx-auto">
-                    <p className="font-medium  w-2/3">
-                  {"Congratulations! Your request to become a teacher has been approved. You now have access to the teacher's dashboard to start creating and managing your courses. Thank you for your patience and dedication. We look forward to seeing your positive impact on our community. "}
+                     <div className="w-2/5  justify-center flex flex-col   ml-40">
+                      <h2 className="text-3xl font-bold text-start mb-4">Hey! {user.displayName}</h2>
+                    <p className="font-medium  ">
+                  Congratulations! Your request to become a teacher has been approved. You now have access to the teacher`s dashboard to start creating and managing your courses. Thank you for your patience and dedication. We look forward to seeing your positive impact on our community. 
                 </p>
-                <div className="flex justify-center  mt-5 gap-5">
+                <div className="flex   mt-5 gap-5">
                 <Link to="/dashboard/add-class" className="btn bg-[#B51B75] hover:btn-outline hover:text-[#B51B75] border-none text-white">Add New Class</Link>
                 <Link to="/dashboard" className="btn btn-outline text-[#FFC107]">
                 Go to Dashboard
                 <FaArrowRightLong /></Link>
                 </div>
                     </div>
-                    <div className="w-1/2 ">
+                    <div className="w-3/5 ">
                        <img src={cngt} alt="" />
                     </div>
                </div>

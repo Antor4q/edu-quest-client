@@ -10,14 +10,16 @@ const MyClass = () => {
     const {user} = useAuth()
     const axiosSecure = useAxios()
 
-    const {data,refetch} = useQuery({
+    const {data,refetch,isPending} = useQuery({
         queryKey: ['class'],
         queryFn: async()=>{
             const res = await axiosSecure.get(`/class/${user?.email}`)
             return res.data
         }
     })
-    console.log(data)
+    if(isPending){
+        return <span className="font-bold text-4xl text-center">Loading...</span>
+    }
     return (
         <div>
             <TitleSection subHeading={'Overview Your classes'} icon={<MdManageAccounts></MdManageAccounts>} heading={"Mange your all classes here"}></TitleSection>

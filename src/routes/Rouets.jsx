@@ -16,6 +16,7 @@ import AdminAllClass from "../pages/Dashboard/AdminAllClass/AdminAllClass";
 import ClassDetails from "../pages/Dashboard/AdminAllClass/ClassDetails";
 
 
+
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -76,7 +77,8 @@ export const router = createBrowserRouter([
         {
           path: "my-class",
           element: <MyClass></MyClass>
-        }
+        },
+       
       ]
     }
   ]);

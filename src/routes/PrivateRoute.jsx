@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 const PrivateRoute = ({children}) => {
     const {user,loading} = useAuth()
     const location = useLocation()
-    console.log(location)
+   
     if(loading){
         return  <>
         <div className="flex max-w-screen h-screen items-center text-center justify-center">

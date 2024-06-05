@@ -11,12 +11,12 @@ const ClassDetails = () => {
      const {data} = useQuery({
         queryKey: ['class'],
         queryFn: async()=>{
-            const res = await axiosSecure.get(`/classes/${id.id}`)
+            const res = await axiosSecure.get(`/classesDetail/${id.id}`)
             return res
         }
      })
-    
-     
+    console.log(data?.data)
+     console.log(id.id)
     return (
         <div className="pb-20">
             <div>

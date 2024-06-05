@@ -9,7 +9,7 @@ import UserRoute from "../../../components/UserRoute";
 
 const Dashboard = () => {
     const [userRole] = useRole()
-   console.log(userRole)
+   
     return (
         <div className="">
            
