@@ -15,7 +15,7 @@ const AllClasses = () => {
             return data
         }
     })
-    console.log(data)
+  
     return (
         <div className="max-w-[1420px] min-h-screen  mx-auto">
             <TitleSection icon={<PiVideoConferenceDuotone />} subHeading={'All classes'} heading={'Find Your Next Course'}></TitleSection>

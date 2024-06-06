@@ -3,6 +3,8 @@ import SocialLogin from "../../shared/SocialLogin";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { useState } from "react";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
 
 const SignIn = () => {
@@ -10,14 +12,16 @@ const SignIn = () => {
     const {signIn} = useAuth()
     const location = useLocation()
     const navigate = useNavigate()
-    console.log(location)
+    const [showPassword, setShowPassword] = useState(false)
     const navo = location.state || "/"
+    const [err,setErr] = useState("")
 
     const onSubmit = async(data) =>{
             await signIn(data.email, data.password)
             .then((result) => {
                 if(result?.user){
                     reset()
+                    setErr("")
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -31,7 +35,7 @@ const SignIn = () => {
                    }
             })
             .catch((err) => {
-                console.log(err.message)
+                setErr(err.message.slice(10))
             })
          }
     return (
@@ -67,15 +71,13 @@ const SignIn = () => {
                         </div>
 
                         <div className="relative flex items-center mt-4">
-                            <span className="absolute">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
-                                    <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </span>
-
+                            
+                            <span className="ml-3 absolute " onClick={()=>setShowPassword(!showPassword)}>{showPassword ? <LuEyeOff />:<LuEye />}</span>
+                           
                             <div>
-                            <input {...register("password", { required: true })} type="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password"/>
+                            <input {...register("password", { required: true })} type={showPassword ? "text": "password"} className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password"/>
                             {errors.password && <span className="text-red-600">This field is required</span>}
+                            {err ? <span className="text-red-600">{err}</span>:"" }
                             </div>
                         </div>
 

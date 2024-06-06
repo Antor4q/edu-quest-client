@@ -5,7 +5,7 @@ import 'react-tabs/style/react-tabs.css';
 import useAuth from "../../hooks/useAuth";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import ReactPlayer from "react-player";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 
@@ -21,12 +21,12 @@ const Details = () => {
             return data
         }
      })
-    console.log(data)
+    
     return (
         <div className=" min-h-screen ">
             <div className="bg-no-repeat text-white  h-[400px] backdrop-blur-md mb-16 hero  bg-center bg-cover" style={{backgroundImage: `url(${group})`}} >
                 <div className="hero-overlay bg-opacity-70 bg-gray-900"></div>
-                        {/* <h2 className="text-5xl font-bold text-center">{data?.data.title}</h2> */}
+                        <h2 className="text-5xl font-bold text-center">{data?.title}</h2>
                 </div>
             <div className="lg:max-w-[1440px] lg:mb-10 flex gap-8 mx-auto">
               <div className="flex-1">
@@ -61,7 +61,7 @@ const Details = () => {
                                </div>
                                <div className="bg-pink-100 flex flex-col justify-center h-[300px] rounded-lg p-10 w-full">
                                <p className="font-medium"> {data?.name}</p>
-                                <p className="flex mt-2 items-center gap-2 font-medium"><MdEmail /> {data.email}</p>
+                                <p className="flex mt-2 items-center gap-2 font-medium"><MdEmail /> {data?.email}</p>
                                 <div className="flex my-3 gap-4 text-2xl font-semibold">
                                     <a href="#"><FaFacebook></FaFacebook></a>
                                     <a href="#"><FaLinkedin></FaLinkedin></a>
@@ -85,7 +85,8 @@ const Details = () => {
                   <div >
                      <ReactPlayer  width={'250px'} height={'220px'} controls url={'https://www.youtube.com/watch?v=5O5e0nnVulY'}></ReactPlayer>
                   </div>
-                  <button className="btn text-white mt-10 btn-outline bg-pink-600">Pay Now</button>
+                  <p className="text-2xl my-4 font-bold">${data?.price}</p>
+                  <Link to={`/payment/${data?._id}`} className="btn text-white  btn-outline bg-pink-600">Pay Now</Link>
               </div>
             </div>
         </div>

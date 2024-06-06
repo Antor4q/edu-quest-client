@@ -42,7 +42,7 @@ const TechOnSkillPath = () => {
           return res
         }
       })
-   
+    console.log(data?.data)
     const onSubmit = async(data)=>{
         const formData = new FormData()
         formData.append('image', data.image[0])
@@ -66,7 +66,7 @@ const TechOnSkillPath = () => {
        }
     }
     return (
-        <div className="">
+        <div className="min-h-screen">
             <div className="bg-no-repeat text-white  h-[400px] backdrop-blur-md mb-16 hero  bg-center bg-cover" style={{backgroundImage: `url(${group})`}} >
             <div className="hero-overlay bg-opacity-60 bg-gray-900"></div>
            

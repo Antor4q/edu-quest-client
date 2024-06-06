@@ -6,11 +6,14 @@ import SocialLogin from "../../shared/SocialLogin";
 import useAxios from "../../hooks/useAxios";
 import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { useState } from "react";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
 
 const SignUp = () => {
     const {signUp,profileUpdate} = useAuth()
     const axiosPublic = useAxios()
+    const [showPassword, setShowPassword] = useState(false)
     
       const {register,handleSubmit,reset,formState: { errors },} = useForm()
 
@@ -121,16 +124,14 @@ const SignUp = () => {
                             </div>
 
                             <div className="relative flex items-center mt-4">
-                                <span className="absolute">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
-                                        <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                    </svg>
-                                </span>
+                              <span className="text-xl absolute ml-3" onClick={()=>setShowPassword(!showPassword)}>{showPassword ? <LuEyeOff />:<LuEye />}</span>
 
-                                <input type="password" {...register("password", { required: true })} name="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password"/>
+                                <input type={showPassword ? "text": "password"}  {...register("password", { required: true, pattern: /^(?=.*[A-Z])(?=.*[a-z]).*$/,minLength: 6 })} name="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password"/>
                                 {errors.password && <span className="text-red-600">This field is required</span>}
+                                {errors.password && errors.password.type === "pattern" && (<span className="text-red-500">Password must have an Uppercase and Lowercase</span>)}
+                                {errors.password && errors.password.type === "minLength" && (<span className="text-red-500">Password should be at least 6 characters</span>)}
                             </div>
-
+                           
                         
 
                             <div className="mt-6">
