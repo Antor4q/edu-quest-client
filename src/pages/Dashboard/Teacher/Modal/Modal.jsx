@@ -4,10 +4,10 @@ import useAxios from "../../../../hooks/useAxios";
 import Swal from "sweetalert2";
 import PropTypes from "prop-types"
 
-const Modal = ({setCount,count}) => {
+const Modal = ({setCount,count,data:dat}) => {
     const {register,handleSubmit,reset,formState: { errors },} = useForm()
     const axiosSecure = useAxios()
-
+  
     const {mutateAsync} = useMutation({
         mutationKey: ['assignment'],
         mutationFn : async(assignment)=>{
@@ -31,7 +31,9 @@ const Modal = ({setCount,count}) => {
         const assignment = {
             title : data.title,
             description : data.description,
-            deadline : data.deadline
+            deadline : data.deadline,
+            classId : dat?._id,
+            classTitle : dat?.title
         }
         mutateAsync(assignment)
     }
@@ -79,5 +81,6 @@ const Modal = ({setCount,count}) => {
 export default Modal;
 Modal.propTypes = {
     setCount : PropTypes.func,
-    count : PropTypes.number
+    count : PropTypes.number,
+    data : PropTypes.object
 }

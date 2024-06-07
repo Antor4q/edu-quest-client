@@ -35,7 +35,7 @@ const MyEnrollClass = () => {
             {
                 data?.length > 0 && <>
                 
-                <div className="grid grid-cols-3 gap-8 w-4/6 mx-auto">
+                <div className="grid grid-cols-3 gap-8 w-5/6 mx-auto">
                 {
                     data?.map( item => <Card key={item._id} item={item}></Card>)
                 }

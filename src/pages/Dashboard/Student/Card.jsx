@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom";
 
 const Card = ({item}) => {
    
@@ -11,7 +12,7 @@ const Card = ({item}) => {
                 <h2 className="card-title text-2xl font-bold">{item?.title}</h2>
                 <p className="font-semibold">Teacher {item?.name}</p>
                 <div className="card-actions justify-end">
-                <button className="btn btn-outline bg-pink-600 text-white">Continue</button>
+                <Link to={`/dashboard/myenroll-class/${item?._id}`} className="btn btn-outline bg-pink-600 text-white">Continue</Link>
                 </div>
             </div>
             </div>

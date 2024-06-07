@@ -4,16 +4,29 @@ import { MdAssignment } from "react-icons/md";
 import { VscFileSubmodule } from "react-icons/vsc";
 import Modal from "../Modal/Modal";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+import useAxios from "../../../../hooks/useAxios";
+import { useQuery } from "@tanstack/react-query";
 
 const ClassDetail = () => {
     const [count,setCount] = useState(0)
-    
+    const id = useParams()
+    const axiosSecure = useAxios()
+    const {data} = useQuery({
+        queryKey: ['class'],
+        queryFn: async()=>{
+            const {data} = await  axiosSecure.get(`/myClasses/${id?.id}`)
+            return data
+        }
+        
+    })
+   
     return (
         <div className="bg-base-200 min-h-screen">
            <div className="w-4/6 mx-auto">
             <div>
                 <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="btn my-10 btn-outline text-white bg-pink-500"><FaPlus></FaPlus> Create</button>
-                <Modal setCount={setCount} count={count}/>
+                <Modal data={data} setCount={setCount} count={count}/>
               
             </div>
            <div className="flex gap-16 py-10 pb-20">

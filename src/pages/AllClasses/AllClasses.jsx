@@ -6,12 +6,12 @@ import Card from "./Card";
 
 
 const AllClasses = () => {
-    const axisPublic = useAxios()
+    const axiosPublic = useAxios()
     const status = 'Accepted'
     const {data} = useQuery({
         queryKey: ['classes'],
         queryFn: async()=>{
-            const {data} = await axisPublic.get(`/classes/${status}`)
+            const {data} = await axiosPublic.get(`/classes/${status}`)
             return data
         }
     })
