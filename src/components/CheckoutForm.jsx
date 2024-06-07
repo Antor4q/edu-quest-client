@@ -17,13 +17,13 @@ const CheckoutForm = ({data}) => {
     const {user} = useAuth()
     const [paymentData] = usePayments()
     const navigate = useNavigate()
+    
    
      const classId = data?.id
 
     
     const dat = paymentData?.find(item => item.title === data?.title)
-    
-
+   
      const price = data?.price
      
      useEffect(()=>{
@@ -58,7 +58,15 @@ const CheckoutForm = ({data}) => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-
+        if(dat?.studentEmail.includes(user?.email)){
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `You have already enrolled on this class try another one`,
+                
+              });
+            return
+        }
         if(!stripe || !elements){
             return
         }
@@ -97,7 +105,9 @@ const CheckoutForm = ({data}) => {
                 if(dat){
                  
                     const totalEnrolled = {
-                        totalEnrolled : dat?.totalEnrolled
+                        totalEnrolled : dat?.totalEnrolled,
+                        studentEmail : [...dat.studentEmail,user?.email],
+                        transactionId : [...dat.transactionId,user?.displayName + ' ' + paymentIntent?.id]
                     }
                     const {data:updatedData} = await axiosSecure.patch(`/payment/${data?.title}`,totalEnrolled)
                     if(updatedData?.modifiedCount > 0){
@@ -117,14 +127,16 @@ const CheckoutForm = ({data}) => {
                 }
                
                 const successPayment = {
-                    name : data?.name || user?.displayName,
-                    email : data?.email || user?.email,
+                    name : data?.name ,
+                    email : data?.email ,
                     title : data?.title,
                     price : data?.price,
                     description : data?.description,
                     classId,
-                    transactionId : paymentIntent.id,
-                    totalEnrolled : 1
+                    transactionId : [ user?.displayName +' ' + paymentIntent.id],
+                    totalEnrolled : 1,
+                    studentEmail : [user?.email],
+                    image : data?.image
                 }
                 mutateAsync(successPayment)
             }
