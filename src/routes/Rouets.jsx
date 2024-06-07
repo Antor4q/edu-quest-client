@@ -17,6 +17,7 @@ import ClassDetails from "../pages/Dashboard/AdminAllClass/ClassDetails";
 import Details from "../pages/AllClasses/Details";
 import MyEnrollClass from "../pages/Dashboard/Student/MyEnrollClass";
 import Payment from "../components/Payment";
+import ClassDetail from "../pages/Dashboard/Teacher/ClassDetail/ClassDetail";
 
 
 
@@ -88,6 +89,10 @@ export const router = createBrowserRouter([
         {
           path: "my-class",
           element: <MyClass></MyClass>
+        },
+        {
+          path: "my-class/:id",
+          element: <ClassDetail></ClassDetail>
         },
       //  student routes
        {

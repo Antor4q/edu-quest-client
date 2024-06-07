@@ -25,7 +25,7 @@ const MyClass = () => {
             <TitleSection subHeading={'Overview Your classes'} icon={<MdManageAccounts></MdManageAccounts>} heading={"Mange your all classes here"}></TitleSection>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 my-24 pl-10">
                {
-                data?.map(cla => <MyClassCard key={cla._id} cla={cla} refetch={refetch}></MyClassCard>)
+                data?.map(cla => <MyClassCard key={cla._id} cla={cla} isPending={isPending} refetch={refetch}></MyClassCard>)
                }
                 
             </div>

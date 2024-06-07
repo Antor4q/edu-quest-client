@@ -5,9 +5,10 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxios from "../../../../hooks/useAxios";
 import MyClassModal from "./MyClassModal";
+import { Link } from "react-router-dom";
 
 
-const MyClassCard = ({cla,refetch}) => {
+const MyClassCard = ({cla,refetch,isPending}) => {
     const { title ,name, email, price, description, status, image,_id} = cla;
     const axiosSecure = useAxios()
     
@@ -35,6 +36,9 @@ const MyClassCard = ({cla,refetch}) => {
             }
           });
     }
+    if(isPending){
+        return <span className="font-bold text-4xl text-center">Loading...</span>
+    }
     return (
         <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <img className="object-cover w-full h-64" src={image} alt="Article"/>
@@ -58,7 +62,7 @@ const MyClassCard = ({cla,refetch}) => {
                     <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">{email}</span>
                 </div>
                 <div className="flex items-center mt-4 justify-evenly">
-                        <button disabled={status !== 'Accepted'} className="btn text-lg btn-outline bg-green-500 text-white items-center gap-3"><FaEye></FaEye>See details</button>
+                        <Link to={`/dashboard/my-class/${_id}`} disabled={status !== 'Accepted'} className="btn text-lg btn-outline bg-green-500 text-white items-center gap-3"><FaEye></FaEye>See details</Link>
 
                         <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="btn text-lg btn-outline bg-pink-500 text-white items-center gap-3"><FaEdit></FaEdit>Update</button>
                         <MyClassModal cla={cla} refetch={refetch}></MyClassModal>
@@ -74,5 +78,6 @@ const MyClassCard = ({cla,refetch}) => {
 export default MyClassCard;
 MyClassCard.propTypes = {
     cla : PropTypes.object,
-    refetch  : PropTypes.func
+    refetch  : PropTypes.func,
+    isPending : PropTypes.bool
 }
