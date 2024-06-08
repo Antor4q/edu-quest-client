@@ -41,7 +41,7 @@ const Navbar = () => {
             <div className="navbar-end">
              <div className="mr-20">
                  <label className="input input-bordered rounded-full py-1 flex items-center gap-2">
-                    <input type="text" className="grow" placeholder="Search" />
+                    <input  type="text" className="grow" placeholder="Search class by title" />
                     <IoSearch />
                     </label>
                  </div>

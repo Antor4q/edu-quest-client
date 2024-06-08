@@ -2,9 +2,10 @@ import { useMutation } from "@tanstack/react-query";
 import PropTypes from "prop-types"
 import useAxios from "../../../hooks/useAxios";
 import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 const MyEnrollClassRow = ({assignment,index}) => {
     const axiosSecure = useAxios()
-
+    const {user} = useAuth()
     const {mutateAsync} = useMutation({
         mutationKey: ['assignmentSubmit'],
         mutationFn : async(submitData)=>{
@@ -22,7 +23,15 @@ const MyEnrollClassRow = ({assignment,index}) => {
         }
     })
     const handleSubmit = assignment => {
-         mutateAsync(assignment)
+        const ass = {
+            title : assignment?.title,
+            classTitle : assignment?.classTitle,
+            description : assignment?.description,
+            deadline : assignment?.deadline,
+            date : new Date(),
+            name: user?.displayName
+        }
+         mutateAsync(ass)
          
     }
     return (

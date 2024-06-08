@@ -4,21 +4,33 @@ import TitleSection from "../../../shared/TitleSection/TitleSection";
 
 import UsersRow from "./UsersRow";
 import { IoSearch } from "react-icons/io5";
+import useAuth from "../../../hooks/useAuth";
+import { useEffect } from "react";
 
 
 const Users = () => {
-    const [users,refetch,isPending] = useUsers()
+    
+    const {search,setSearch} = useAuth()
+    const {data,refetch} = useUsers(search)
+    
+    useEffect(()=>{
+        refetch()
+    },[search,refetch])
 
     const handleSearch = email => {
-        console.log(email)
+        
+      
+        setSearch(email)
     }
+
+   
     return (
         <div>
            
             <TitleSection icon={<FaUsersCog />} subHeading={'User Management'} heading={'Overview of All Registered Users'}></TitleSection>
-            <div className="lg:w-3/4 p-10 mt-10 rounded-lg bg-base-200  lg:mx-auto">
+            <div className="lg:w-3/4 lg:h-[750px] p-10 mt-10 rounded-lg bg-base-200  lg:mx-auto">
                  <div className="flex justify-evenly">
-                    <h2 className="text-2xl font-semibold">Total Users : {users?.length}</h2>
+                    <h2 className="text-2xl font-semibold">Total Users : {data?.length}</h2>
                  <label  className="input mb-6 w-1/4 input-bordered rounded-full  flex items-center gap-2">
                     <input onChange={(e)=>handleSearch(e.target.value)} type="text" className="grow" placeholder="Search by email" />
                     <IoSearch />
@@ -40,7 +52,7 @@ const Users = () => {
                         </thead>
                         <tbody>
                          {
-                            users?.map((user,index) => <UsersRow refetch={refetch} isPending={isPending} key={user._id} user={user} index={index}></UsersRow>)
+                            data?.map((user,index) => <UsersRow  key={user._id} user={user} index={index}></UsersRow>)
                           }
                         </tbody>
                     </table>

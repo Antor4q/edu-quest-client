@@ -20,7 +20,22 @@ const ClassDetail = () => {
         }
         
     })
-   
+   const title = data?.title
+   const {data:info,isPending} = useQuery({
+    queryKey: ['classInfo'],
+    queryFn: async()=>{
+        const {data:info} = await  axiosSecure.get(`/classInfo/${title}`)
+        return info
+    }
+    
+})
+  if(isPending){
+    return  <>
+    <div className="flex max-w-screen h-screen items-center text-center justify-center">
+    <progress className="progress w-56"></progress>
+    </div>
+    </>
+  }
     return (
         <div className="bg-base-200 min-h-screen">
            <div className="w-4/6 mx-auto">
@@ -35,21 +50,21 @@ const ClassDetail = () => {
                         <p>Total Enrolled</p>
                         <p className="bg-pink-500 rounded-lg px-4 py-2 text-white text-3xl font-bold"><FaUsersRectangle  /></p>
                     </div>
-                    <p className="text-4xl font-bold">+231</p>
+                    <p className="text-4xl font-bold">+{info?.totalEnrolled}</p>
                 </div>
                 <div className="shadow-xl p-8 font-medium rounded-xl h-[200px] w-[250px]">
                     <div className="flex justify-between">
                         <p>Total Assignment</p>
                         <p className="bg-pink-500 rounded-lg px-4 py-2 text-white text-3xl font-bold"><MdAssignment /></p>
                     </div>
-                    <p className="text-4xl font-bold">+{count}</p>
+                    <p className="text-4xl font-bold">+{info?.totalASsignments}</p>
                 </div>
                 <div className="shadow-xl p-8 font-medium rounded-xl h-[200px] w-[250px]">
                     <div className="flex justify-between">
                         <p> Per day assignment submitted</p>
                         <p className="bg-pink-500 h-[48px] rounded-lg px-4 py-2 text-white text-3xl font-bold"><VscFileSubmodule /></p>
                     </div>
-                    <p className="text-4xl font-bold">+31</p>
+                    <p className="text-4xl font-bold">+{info?.perDaySubmit}</p>
                 </div>
                 
             </div>

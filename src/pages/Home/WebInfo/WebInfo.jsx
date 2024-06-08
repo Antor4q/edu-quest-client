@@ -1,7 +1,19 @@
 import { GrImpact } from "react-icons/gr";
 import web from "../../../../public/webInfo.webp"
+import useAxios from "../../../hooks/useAxios";
+import { useQuery } from "@tanstack/react-query";
 
 const WebInfo = () => {
+
+    const axiosPublic = useAxios()
+    const {data} = useQuery({
+        queryKey: ['info'],
+        queryFn: async()=>{
+            const {data} = await axiosPublic.get("/impact")
+            return data
+        }
+    })
+   
     return (
         <div className="mb-24  py-8">
             <div className="max-w-[1440px] mx-auto flex gap-6">
@@ -14,15 +26,15 @@ const WebInfo = () => {
                     <div className="card-body grid grid-cols-3 gap-6  py-16 justify-evenly">
                         <div>
                         <h2 className="card-title mb-3">Total Users</h2>
-                        <p className="text-3xl font-bold">+42233</p>
+                        <p className="text-3xl font-bold">+{data?.totalUsers}</p>
                         </div>
                         <div>
                         <h2 className="card-title mb-3">Total Classes</h2>
-                        <p className="text-3xl font-bold">+1233</p>
+                        <p className="text-3xl font-bold">+{data?.totalClasses}</p>
                         </div>
                         <div>
                         <h2 className="card-title mb-3">Total Enrolled</h2>
-                        <p className="text-3xl font-bold">+3423</p>
+                        <p className="text-3xl font-bold">+{data?.totalEnrolled}</p>
                         </div>
                        
                        

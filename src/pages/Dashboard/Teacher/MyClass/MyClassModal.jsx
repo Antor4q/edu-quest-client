@@ -5,18 +5,31 @@ import useAuth from "../../../../hooks/useAuth";
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
-const MyClassModal = ({cla,refetch}) => {
-  console.log(cla)
-    const { title ,name, email, price, description,image,_id,status} = cla;
-    const {register,handleSubmit} = useForm()
-    const [toggle,setToggle] = useState(true)
-    const [link,setLink] = useState("")
-    const axiosSecure = useAxios()
-    const {user} = useAuth()
+const MyClassModal = () => {
+   const {id} = useParams()
+   const axiosSecure = useAxios()
+   const {register,handleSubmit} = useForm()
+   const [toggle,setToggle] = useState(true)
+   const [link,setLink] = useState("")
+   
+   const {user} = useAuth()
+   
+   const {data,refetch,isPending} = useQuery({
+    queryKey: ['class'],
+    queryFn: async()=>{
+      const {data} = await axiosSecure.get(`/classesDetail/${id}`)
+      return data
+    }
+   })
+   
+    const { title ,name, email, price, description,image,_id,status} = data;
+   
  
     const onSubmit = async(data) => {
-       console.log(data)
+      
         try{
             if(data?.image?.length > 0){
                 const formData = new FormData()
@@ -52,16 +65,13 @@ const MyClassModal = ({cla,refetch}) => {
         }
       
     }
+    if(isPending){
+      return <span className="font-bold text-4xl text-center">Loading...</span>
+   }
     return (
       
-    <>
-     <dialog id="my_modal_3" className="modal">
-        <div className="modal-box">
-        <form method="dialog">
-       
-        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-        </form>
-            <div className="  mt-10">
+     <div>
+           <div className="w-3/5 mx-auto  mt-10">
                <form onSubmit={handleSubmit(onSubmit)}>
                      
                     <div className="form-control w-full">
@@ -111,9 +121,7 @@ const MyClassModal = ({cla,refetch}) => {
                    
                   </form>
             </div>
-       </div>
-     </dialog></>
-
+     </div>
     );
 };
 

@@ -17,7 +17,9 @@ const MyClass = () => {
             return res.data
         }
     })
+  
     if(isPending){
+       
         return <span className="font-bold text-4xl text-center">Loading...</span>
     }
     return (

@@ -9,7 +9,7 @@ import useUsers from "../../../hooks/useUsers";
 import { FaPlus } from "react-icons/fa6";
 
 const MeetTeacher = () => {
-    const [users] = useUsers()
+    const {data:users} = useUsers()
      const data = users?.filter(user => user.role !== 'Student')
     
     return (

@@ -12,6 +12,7 @@ const AuthProvider = ({children}) => {
     const [loading,setLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider()
     const axiosPublic = useAxios()
+    const [search,setSearch] = useState("")
 
     const signUp = (email, password) => {
         setLoading(true)
@@ -66,6 +67,8 @@ const AuthProvider = ({children}) => {
     const userInfo = {
         user,
         loading,
+       search,
+        setSearch,
         setLoading,
         signUp,
         signIn,
