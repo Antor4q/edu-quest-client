@@ -3,19 +3,37 @@ import { useParams } from "react-router-dom";
 import useAxios from "../../../hooks/useAxios";
 import group from "../../../assets/group1.avif"
 import { MdEmail } from "react-icons/md";
+import DetailsRev from "../../AllClasses/DetailsRev";
 
 const ClassDetails = () => {
     const id = useParams()
     const axiosSecure = useAxios()
 
-     const {data} = useQuery({
+     const {data,isPending} = useQuery({
         queryKey: ['class'],
         queryFn: async()=>{
             const res = await axiosSecure.get(`/classesDetail/${id.id}`)
             return res
         }
      })
+
+   const classTitle = data?.data?.title 
+     const {data:feedback,isPending:titleLoad} = useQuery({
+        queryKey: ['feedback'],
+        queryFn: async()=>{
+            const {data:feed} = await axiosSecure.get(`/feedbackRev/${classTitle}`)
+            return feed
+        }
+    })
    
+    if(isPending || titleLoad){
+        return  <>
+        <div className="flex max-w-screen h-screen items-center text-center justify-center">
+        <progress className="progress w-56"></progress>
+        </div>
+        </>
+    }
+    
     return (
         <div className="pb-20">
             <div>
@@ -34,7 +52,12 @@ const ClassDetails = () => {
                         <p className="font-medium">By {data?.data.name}</p>
                         <p className="flex mt-2 items-center gap-2 font-medium"><MdEmail /> {data?.data.email}</p>
                     </div>
+                    <div className="mt-8">
+                        <h2 className="text-2xl font-bold mb-5">Learners feedback</h2>
+                        <DetailsRev data={feedback}/>
+                    </div>
                 </div>
+                
             </div>
         </div>
     );

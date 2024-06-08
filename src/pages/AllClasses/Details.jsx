@@ -8,13 +8,16 @@ import ReactPlayer from "react-player";
 import { Link, useParams } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
+import DetailsRev from "./DetailsRev";
+
 
 const Details = () => {
     const {user} = useAuth()
     const {id} = useParams()
+    
     const axiosSecure = useAxios()
 
-     const {data} = useQuery({
+     const {data,isPending} = useQuery({
         queryKey: ['class'],
         queryFn: async()=>{
             const {data} = await axiosSecure.get(`/classesDetail/${id}`)
@@ -22,6 +25,22 @@ const Details = () => {
         }
      })
     
+     const classTitle = data?.title 
+     const {data:feedback,isPending:titleLoad} = useQuery({
+        queryKey: ['feedback'],
+        queryFn: async()=>{
+            const {data:feed} = await axiosSecure.get(`/feedbackRev/${classTitle}`)
+            return feed
+        }
+    })
+    
+    if(isPending || titleLoad){
+        return  <>
+        <div className="flex max-w-screen h-screen items-center text-center justify-center">
+        <progress className="progress w-56"></progress>
+        </div>
+        </>
+    }
     return (
         <div className=" min-h-screen ">
             <div className="bg-no-repeat text-white  h-[400px] backdrop-blur-md mb-16 hero  bg-center bg-cover" style={{backgroundImage: `url(${group})`}} >
@@ -56,8 +75,8 @@ const Details = () => {
                         </TabPanel>
                         <TabPanel >
                             <div className="h-[400px]  flex gap-5 my-10 mx-auto">
-                               <div className=" ">
-                                  <img className="h-[300px] w-[300px]" src={user?.photoURL} alt="" />
+                               <div className="border-4 h-[300px] rounded-lg shadow-xl">
+                                  <img className="h-[270px] w-[350px]" src={user?.photoURL} alt="" />
                                </div>
                                <div className="bg-pink-100 flex flex-col justify-center h-[300px] rounded-lg p-10 w-full">
                                <p className="font-medium"> {data?.name}</p>
@@ -72,8 +91,9 @@ const Details = () => {
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <div className="h-[400px] my-10 mx-auto">
-                            <h2 className="text-2xl font-bold">About the course </h2>
+                            <div className="h-[400px] my-5 mx-auto">
+                            <h2 className="text-2xl mb-5 font-bold">What our learners say </h2>
+                               <DetailsRev data={feedback} />
                            
                             </div>
                         </TabPanel>
