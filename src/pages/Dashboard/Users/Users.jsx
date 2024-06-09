@@ -77,7 +77,9 @@ const Users = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className="flex gap-4 justify-end mt-10">
+                
+            </div>
+            <div className="flex lg:w-3/4 mb-20 gap-4 justify-end mt-10">
                    
                     <button onClick={()=>handlePrev()} className="btn btn-outline"><GrPrevious /></button>
                      {
@@ -89,7 +91,6 @@ const Users = () => {
                      }
                      <button onClick={()=>handleNext()} className="btn btn-outline"><GrNext /></button>
                 </div>
-            </div>
         </div>
     );
 };

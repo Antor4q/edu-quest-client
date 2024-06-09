@@ -14,14 +14,14 @@ const TeacherRequest = () => {
     const totalTeachers = data?.totalTeachers || 11
     const perPageTeacher = 10
   
-    const pages = Math.ceil(totalTeachers/ perPageTeacher)
+    const pages = Math.ceil(totalTeachers / perPageTeacher)
     
     const page = [...Array(pages).keys()]
     
     const [currentPage,setCurrentPage] = useState(1)
     
     const {data:filterData,refetch} = usePagination("teachers",currentPage,perPageTeacher)
-    console.log(filterData)
+    
 
     useEffect(()=>{
         refetch()
@@ -71,8 +71,10 @@ const TeacherRequest = () => {
                         </tbody>
                     </table>
                 </div>
-                {/*  */}
-                <div className="flex gap-4 justify-end mt-10">
+               
+                
+            </div>
+            <div className="flex gap-4 p-10 justify-end mb-20 mt-10">
                    
                     <button onClick={()=>handlePrev()} className="btn btn-outline"><GrPrevious /></button>
                      {
@@ -84,7 +86,6 @@ const TeacherRequest = () => {
                      }
                      <button onClick={()=>handleNext()} className="btn btn-outline"><GrNext /></button>
                 </div>
-            </div>
         </div>
     );
 };

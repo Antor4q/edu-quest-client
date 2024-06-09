@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import useAxios from "../../../../hooks/useAxios";
 import { useForm } from "react-hook-form";
-import useAuth from "../../../../hooks/useAuth";
+
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -15,9 +15,9 @@ const MyClassModal = () => {
    const [toggle,setToggle] = useState(true)
    const [link,setLink] = useState("")
    
-   const {user} = useAuth()
    
-   const {data,refetch,isPending} = useQuery({
+   
+   const {data:classes,refetch,isPending} = useQuery({
     queryKey: ['class'],
     queryFn: async()=>{
       const {data} = await axiosSecure.get(`/classesDetail/${id}`)
@@ -25,7 +25,7 @@ const MyClassModal = () => {
     }
    })
    
-    const { title ,name, email, price, description,image,_id,status} = data;
+   
    
  
     const onSubmit = async(data) => {
@@ -39,15 +39,15 @@ const MyClassModal = () => {
             }
             const course = {
                 title : data.title,
-                name : name,
-                email : email,
+                name : classes.name,
+                email : classes?.email,
                 price : data.price,
                 description : data.description,
-                image : link  ?  link : image,
-                status : status
+                image : link  ?  link : classes?.image,
+                status : classes?.status
                
             }
-            const res = await axiosSecure.put(`/classes/${_id}`,course)
+            const res = await axiosSecure.put(`/classes/${classes?._id}`,course)
             if(res?.data?.modifiedCount > 0){
                 refetch()
                 Swal.fire({
@@ -78,26 +78,26 @@ const MyClassModal = () => {
                       <label className="label">
                         <span className="label-text">Title</span>
                          </label>
-                     <input type="text" {...register("title")} defaultValue={title} placeholder="Title"  className="input input-bordered" required />
+                     <input type="text" {...register("title")} defaultValue={classes?.title} placeholder="Title"  className="input input-bordered" />
                      
                     </div>  
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Name</span>
                          </label>
-                     <input type="name" {...register("name")} placeholder="Your Name" value={user?.displayName} disabled className="input input-bordered" required />
+                     <input type="name" {...register("name")} placeholder="Your Name" value={classes?.name} disabled className="input input-bordered"  />
                     </div> 
                     <div className="form-control w-full">
                       <label className="label">
                         <span className="label-text">Email</span>
                          </label>
-                     <input type="email" {...register("email")} placeholder="email" value={user?.email} disabled className="input input-bordered" />
+                     <input type="email" {...register("email")} placeholder="email" value={classes?.email} disabled className="input input-bordered" />
                     </div>  
                     <div className="form-control w-full">
                       <label className="label">
                         <span className="label-text">Price</span>
                          </label>
-                     <input type="number" {...register("price")} defaultValue={price} placeholder="Price"  className="input input-bordered" />
+                     <input type="number" {...register("price")} defaultValue={classes?.price} placeholder="Price"  className="input input-bordered" />
                    
                     </div>  
                     <div className="form-control w-full">
@@ -105,13 +105,13 @@ const MyClassModal = () => {
                         <span className="label-text">Description</span>
                          </label>
                     
-                     <textarea placeholder="Short Description" defaultValue={description} {...register("description")} className="textarea textarea-bordered textarea-lg w-full " ></textarea>
+                     <textarea placeholder="Short Description" defaultValue={classes?.description} {...register("description")} className="textarea textarea-bordered textarea-lg w-full " ></textarea>
                    
                     </div>  
                   
                       <div className="from-control">
                       <label onClick={()=>setToggle(false)} className="flex h-[48px] items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900">
-                            {toggle ? <span>{image}</span> :
+                            {toggle ? <span>{classes?.image}</span> :
                             <input  {...register("image")}   name="image" type="file" />}
                             
                         </label>

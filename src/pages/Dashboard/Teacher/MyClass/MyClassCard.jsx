@@ -42,7 +42,7 @@ const MyClassCard = ({cla,refetch,isPending}) => {
         return <span className="font-bold text-4xl text-center">Loading...</span>
     }
     return (
-        <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <div className=" overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <img className="object-cover w-full h-64" src={image} alt="Article"/>
 
         <div className="p-6">
@@ -64,12 +64,12 @@ const MyClassCard = ({cla,refetch,isPending}) => {
                     <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">{email}</span>
                 </div>
                 <div className="flex items-center mt-4 justify-evenly">
-                        <Link to={`/dashboard/my-class/${_id}`} disabled={status !== 'Accepted'} className="btn text-lg btn-outline bg-green-500 text-white items-center gap-3"><FaEye></FaEye>See details</Link>
+                        <Link  to={`/dashboard/my-class/${_id}`} disabled={status !== 'Accepted'} className="btn text-lgbtn-outline bg-green-500 text-white items-center gap-3"><FaEye></FaEye>See details</Link>
 
-                        <Link to={`/dashboard/my-classUpdate/${cla?._id}`} className="btn text-lg btn-outline bg-pink-500 text-white items-center gap-3"><FaEdit></FaEdit>Update</Link>
+                        <Link to={`/dashboard/my-classUpdate/${cla?._id}`} className="btn  btn-outline bg-pink-500 text-white items-center gap-3"><FaEdit></FaEdit>Update</Link>
                         
 
-                        <button onClick={()=> handleDelete(_id)} className="btn btn-outline text-lg bg-red-500 text-white items-center gap-3"><MdDelete></MdDelete>Delete</button>
+                        <button onClick={()=> handleDelete(_id)} className="btn btn-outline  bg-red-500 text-white items-center gap-3"><MdDelete></MdDelete>Delete</button>
                 </div>
             </div>
         </div>
