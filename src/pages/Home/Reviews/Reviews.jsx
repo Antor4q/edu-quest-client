@@ -49,7 +49,7 @@ const Reviews = () => {
          
         {
                 data?.map(item=> <>
-                    <SwiperSlide className="rounded-xl">
+                    <SwiperSlide key={item?._id} className="rounded-xl">
                     <div className="card border  hover:shadow-lg  bg-none ">
                       <div className="avatar flex pt-7 justify-center">
                         <div className="w-24 rounded-full">

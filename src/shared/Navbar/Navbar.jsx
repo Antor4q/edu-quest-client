@@ -4,12 +4,15 @@ import { FaList } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
 
 const Navbar = () => {
-    const {user,logOut} = useAuth()
+    const {user,logOut,setSearch} = useAuth()
     const nav = <>
       <li><NavLink style={({isActive})=> isActive? {color: "#DB2777",background:"none"}:{}} to="/">Home</NavLink></li>
       <li><NavLink style={({isActive})=> isActive? {color: "#DB2777",background:"none"}:{}} to="/allClasses">All Classes</NavLink></li>
       <li><NavLink style={({isActive})=> isActive? {color: "#DB2777",background:"none"}:{}} to="/techOn">Tech On SkillPath</NavLink></li>
     </>
+    const handleSearch = search => {
+        setSearch(search)
+    }
 
     const handleLogOut = async() => {
         await logOut()
@@ -41,7 +44,7 @@ const Navbar = () => {
             <div className="navbar-end">
              <div className="mr-20">
                  <label className="input input-bordered rounded-full py-1 flex items-center gap-2">
-                    <input  type="text" className="grow" placeholder="Search class by title" />
+                    <input onChange={(e)=>handleSearch(e.target.value)} type="text" className="grow" placeholder="Search class by title" />
                     <IoSearch />
                     </label>
                  </div>

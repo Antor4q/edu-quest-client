@@ -3,7 +3,9 @@ import PropTypes from "prop-types"
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebse.config";
 
-import useAxios from "../hooks/useAxios";
+
+import useAxiosPublic from "../hooks/useAxiosPublic";
+
 
 export const SkillContext = createContext()
 const AuthProvider = ({children}) => {
@@ -11,7 +13,7 @@ const AuthProvider = ({children}) => {
     const [user,setUser] = useState("")
     const [loading,setLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider()
-    const axiosPublic = useAxios()
+    const axiosPublic = useAxiosPublic()
     const [search,setSearch] = useState("")
 
     const signUp = (email, password) => {
@@ -45,20 +47,22 @@ const AuthProvider = ({children}) => {
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser)
-            setLoading(false)
+           setUser(currentUser)
+           
             if(currentUser){
                const userEmail = { email : currentUser?.email}
                axiosPublic.post("/jwt",userEmail)
                .then(res => {
                
                  localStorage.setItem('access-token', res?.data?.token)
+                 setLoading(false)
                })
             }
             else{
              
                 
                 localStorage.removeItem("access-token")
+                setLoading(false)
             }
         })
         return ()=> unsubscribe()

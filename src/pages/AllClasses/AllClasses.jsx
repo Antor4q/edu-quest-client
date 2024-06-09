@@ -8,7 +8,7 @@ import useAuth from "../../hooks/useAuth";
 
 const AllClasses = () => {
     const axiosPublic = useAxios()
-    const {name} = useAuth()
+    const {search} = useAuth()
    
     const param = {name : name}
     const status = 'Accepted'
@@ -26,7 +26,7 @@ const AllClasses = () => {
             <p className="w-3/5 mx-auto text-center">Browse all available classes in one place. Whether you`re just starting or looking to advance, you`ll find courses that fit your needs. Filter by category, level, or teacher to find the right class for you and start learning today.</p>
             <div className="grid my-16 grid-cols-3 gap-10">
                 {
-                    data?.filter(item => item.title.toLowerCase().includes(name.toLowerCase())).map(item => <Card key={item._id} item={item}></Card>)
+                    data?.filter(item => item.title.toLowerCase().includes(search.toLowerCase())).map(item => <Card key={item._id} item={item}></Card>)
                 }
             </div>
         </div>

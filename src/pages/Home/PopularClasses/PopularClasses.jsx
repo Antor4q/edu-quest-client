@@ -36,7 +36,7 @@ const PopularClasses = () => {
             
               {data?.map(item => <>
               
-                <SwiperSlide>
+                <SwiperSlide key={item?._id}>
               <div className="w-full z-10 mb-5 text-start max-w-[300px] max-h-[400px]  overflow-hidden  rounded-lg shadow-lg dark:bg-gray-800">
                     <img className="object-cover object-center w-full max-h-[200px] min-h-[200px]" src={item.image} alt="avatar"/>
 
