@@ -51,7 +51,7 @@ const AdminACRow = ({cla,index,refetch}) => {
          <td><button  
             onClick={()=>handleClass(_id, 'Accepted')}
             disabled={status !== 'Pending'}  
-             className={`${status !== 'Pending'  ? 'bg-pink-300' : 'bg-pink-600'} text-white px-4 py-2  rounded-lg`}>{status === 'Accepted' ? 'Accepted' : 'Approved'}</button></td>
+             className={`${status !== 'Pending'  ? 'bg-[#5b77a0]' : 'bg-[#0D6EFD]'} text-white px-4 py-2  rounded-lg`}>{status === 'Accepted' ? 'Accepted' : 'Approved'}</button></td>
 
             <td><button 
                 onClick={()=>handleClass(_id, 'Rejected')}
@@ -60,7 +60,7 @@ const AdminACRow = ({cla,index,refetch}) => {
          <td><Link 
            to={`/dashboard/class/${_id}`}
             disabled={status !== 'Accepted'}
-            className={`${status !== 'Accepted' ? 'bg-gray-200 ' : 'bg-green-600 text-white'}  px-4 py-2  rounded-lg`}>See progress</Link></td>
+            className={`${status !== 'Accepted' ? 'bg-gray-200 ' : 'bg-green-600 text-white'} px-2   md:px-4 md:py-2 btn btn-sm rounded-lg`}>See progress</Link></td>
         
         </tr>
     );

@@ -35,14 +35,15 @@ const ClassDetails = () => {
     }
     
     return (
-        <div className="pb-20">
+        <div className="lg:pb-20 pb-10">
             <div>
                 <div className="bg-no-repeat text-white  h-[400px] backdrop-blur-md mb-16 hero  bg-center bg-cover" style={{backgroundImage: `url(${group})`}} >
                 <div className="hero-overlay bg-opacity-70 bg-gray-900"></div>
                         <h2 className="text-5xl font-bold text-center">{data?.data.title}</h2>
                 </div>
-                <div className="w-2/3 border p-10 rounded-xl mx-auto">
-                    <img  className="w-full rounded-xl h-[500px] bg-cover" src={data?.data.image} alt="" />
+
+                <div className="lg:w-2/3  border md:p-5 p-3 lg:p-10 rounded-xl mx-auto">
+                    <img  className="w-full rounded-xl md:h-[400px] h-[250px] lg:h-[500px] bg-cover" src={data?.data.image} alt="" />
                 </div>
                 <div className="w-2/3 my-10 mx-auto">
                     <h2 className="text-2xl font-bold">About the course <span className="ml-5 text-4xl ">${data?.data.price}</span></h2>

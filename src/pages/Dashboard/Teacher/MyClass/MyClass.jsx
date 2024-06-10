@@ -49,20 +49,20 @@ const MyClass = () => {
     return (
         <div>
             <TitleSection subHeading={'Overview Your classes'} icon={<MdManageAccounts></MdManageAccounts>} heading={"Mange your all classes here"}></TitleSection>
-            <div className="grid grid-cols-1 lg:grid-cols-3  gap-10 my-24 pl-10">
+            <div className="grid grid-cols-1  lg:grid-cols-3 md:grid-cols-2  gap-10 lg:my-24 my-16  lg:pl-10 ">
                {
                 allData?.map(cla => <MyClassCard key={cla._id} cla={cla} isPending={isPending} refetch={refetch}></MyClassCard>)
                }
                 
             </div>
-            <div className="flex mb-20 mr-20 gap-4 justify-end mt-10">
+            <div className="flex mb-16 lg:mb-20 mr-14 lg:mr-20 gap-4 justify-end mt-10">
                    
                     <button onClick={()=>handlePrev()} className="btn btn-outline"><GrPrevious /></button>
                      {
                         page?.map((item,index) => <>
                          <button 
                          onClick={()=>setCurrentPage( item + 1)}
-                         className={`btn btn-outline  ${currentPage === item+1 && 'bg-pink-500 border-none text-white'}`} key={index}>{item + 1}</button>
+                         className={`btn btn-outline  ${currentPage === item+1 && 'bg-[#0D6EFD] border-none text-white'}`} key={index}>{item + 1}</button>
                         </>)
                      }
                      <button onClick={()=>handleNext()} className="btn btn-outline"><GrNext /></button>

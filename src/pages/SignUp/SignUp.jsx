@@ -134,7 +134,7 @@ const SignUp = () => {
                         
 
                             <div className="mt-6">
-                                <input type="submit" className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#B51B75] rounded-lg hover:bg-[#b25089] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50" value="Sign Up" />
+                                <input type="submit" className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#0D6EFD] rounded-lg hover:bg-[#5473a2] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50" value="Sign Up" />
 
                             
                             </div>
@@ -143,7 +143,7 @@ const SignUp = () => {
                         <div className="mt-6 text-center ">
                                     <SocialLogin></SocialLogin>
                                     <span  className="text-sm   dark:text-blue-400">
-                                    Already have an account? <Link className="text-[#B51B75] hover:underline" to="/signIn">Sign In</Link>
+                                    Already have an account? <Link className="text-[#0D6EFD] hover:underline" to="/signIn">Sign In</Link>
                                     </span>
                                 </div>
                    </div>

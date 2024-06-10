@@ -32,14 +32,22 @@ const PopularClasses = () => {
     </>
   }
      return (
-        <div className="lg:max-w-[1440px]  my-10 mx-auto pt-4">
+        <div className="lg:max-w-[1440px] px-5 my-10 mx-auto pt-4">
             <TitleSection subHeading={"Popular Classes"} heading={"Our Popular Classes"} icon={<FaBook></FaBook>}></TitleSection>
             <div>
                 <Swiper
                 loop={true}
                 spaceBetween={30}
                 centeredSlides={true}
-                slidesPerView={3}
+                slidesPerView={
+                  window.innerWidth <= 550
+                    ? 1
+                    : window.innerWidth <= 720
+                    ? 2
+                    : window.innerWidth > 720
+                    ? 3
+                    : 0
+                }
                 
                 navigation={true}
                 modules={[Pagination, Navigation]}
@@ -48,7 +56,7 @@ const PopularClasses = () => {
               {popularClasses?.map(item => <>
               
                 <SwiperSlide key={item?._id}>
-              <div className="w-full z-10 mb-5 text-start max-w-[350px] max-h-[400px]  overflow-hidden  rounded-lg shadow-lg dark:bg-gray-800">
+              <div className="w-full z-10 mb-5 px-5 text-start max-w-[350px] max-h-[400px]  overflow-hidden  rounded-lg shadow-lg dark:bg-gray-800">
                     <img className="object-cover object-center w-full max-h-[200px] min-h-[200px]" src={item?.image} alt="avatar"/>
 
                     <div className="flex items-center px-6 py-1 bg-gray-900">

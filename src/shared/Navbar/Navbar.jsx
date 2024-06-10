@@ -2,13 +2,14 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { FaList } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
+import logo from "../../assets/logo.png"
 
 const Navbar = () => {
     const {user,logOut,setSearch} = useAuth()
     const nav = <>
-      <li><NavLink style={({isActive})=> isActive? {color: "#DB2777",background:"none"}:{}} to="/">Home</NavLink></li>
-      <li><NavLink style={({isActive})=> isActive? {color: "#DB2777",background:"none"}:{}} to="/allClasses">All Classes</NavLink></li>
-      <li><NavLink style={({isActive})=> isActive? {color: "#DB2777",background:"none"}:{}} to="/techOn">Tech On SkillPath</NavLink></li>
+      <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/">Home</NavLink></li>
+      <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/allClasses">All Classes</NavLink></li>
+      <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/techOn">Tech On SkillPath</NavLink></li>
     </>
     const handleSearch = search => {
         setSearch(search)
@@ -22,7 +23,7 @@ const Navbar = () => {
 
     return (
         <div className="py-2">
-             <div className="navbar max-w-[1420px]  mx-auto">
+             <div className="navbar lg:max-w-[1420px] h-[100px]  lg:mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,7 +34,7 @@ const Navbar = () => {
                 </ul>
                 </div>
                 
-                <Link to="/" className="btn btn-ghost text-xl px-0">SkillPath</Link>
+                <div className="lg:text-xl h-[100px] w-[150px]  md:h-[300px] md:min-w-[300px] flex items-center text-center relative"><div className="absolute -left-24"> <img className=" h-[150px] w-[150px]  md:h-[300px] md:min-w-[300px]" src={logo} alt="" /></div></div>
                 <div className="ml-8 hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {nav}
@@ -42,7 +43,7 @@ const Navbar = () => {
             </div>
           
             <div className="navbar-end">
-             <div className="mr-20">
+             <div className="md:mr-20 hidden md:flex">
                  <label className="input input-bordered rounded-full py-1 flex items-center gap-2">
                     <input onChange={(e)=>handleSearch(e.target.value)} type="text" className="grow" placeholder="Search class by title" />
                     <IoSearch />
@@ -64,7 +65,7 @@ const Navbar = () => {
                                     <li><button onClick={handleLogOut}>Log Out</button></li>
                                 </ul>
                     </div>: 
-                  <Link to="/signIn" className="btn px-5 py-1 hover:border-none text-[#B51B75] btn-outline hover:bg-[#B51B75] hover:text-white">Sign In</Link>
+                  <Link to="/signIn" className="btn px-5 py-1 hover:border-none text-[#0D6EFD] btn-outline hover:bg-[#0D6EFD] hover:text-white">Sign In</Link>
                 }
                 
             </div>

@@ -162,7 +162,7 @@ const CheckoutForm = ({data}) => {
                 }}
             />
             
-             <button type="submit" className="btn px-5 mt-10 text-white btn-outline bg-pink-600" disabled={!stripe || !clientSecret}>Pay</button>
+             <button type="submit" className="btn px-5 mt-10 text-white btn-outline bg-[#0D6EFD]" disabled={!stripe || !clientSecret}>Pay</button>
             </form>
             {
                 err && <span className="text-red-600">{err}</span>

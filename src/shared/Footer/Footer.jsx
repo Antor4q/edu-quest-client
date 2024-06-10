@@ -1,35 +1,76 @@
-
+import { MdArrowRightAlt, MdEmail } from "react-icons/md";
+import logo from "../../assets/logo.png"
+import footer from "../../assets/footer.jpg"
+import { FaPhone } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <div className="bg-[#F1F1F1] text-[#333333]">
-            <footer className="footer p-10 max-w-[1420px] mx-auto  text-base-content">
-            <aside>
-                <svg width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" className="fill-current"><path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path></svg>
-                <p>ACME Industries Ltd.<br/>Providing reliable tech since 1992</p>
-            </aside> 
-            <nav>
-                <h6 className="footer-title">Services</h6> 
-                <a className="link link-hover hover:text-[#388E3C]">Branding</a>
-                <a className="link link-hover">Design</a>
-                <a className="link link-hover">Marketing</a>
-                <a className="link link-hover">Advertisement</a>
-            </nav> 
-            <nav>
-                <h6 className="footer-title">Company</h6> 
-                <a className="link link-hover">About us</a>
-                <a className="link link-hover">Contact</a>
-                <a className="link link-hover">Jobs</a>
-                <a className="link link-hover">Press kit</a>
-            </nav> 
-            <nav>
-                <h6 className="footer-title">Legal</h6> 
-                <a className="link link-hover">Terms of use</a>
-                <a className="link link-hover">Privacy policy</a>
-                <a className="link link-hover">Cookie policy</a>
-            </nav>
-            </footer>
+        <div className="bg-white dark:bg-gray-900 bg-no-repeat lg:max-h-[650px] bg-cover" style={{backgroundImage : `url(${footer})`}}>
+    <div className="container px-6 py-12 mx-auto">
+        <div className="md:flex md:-mx-3 md:items-center md:justify-between">
+            <h1 className="text-xl font-semibold tracking-tight  md:mx-3 xl:text-2xl text-white">Subscribe our newsletter to get update.</h1>
+            
+            <div className="mt-6 md:mx-3 shrink-0 md:mt-0 md:w-auto">
+                <a href="#" className="inline-flex items-center justify-center w-full px-4 py-2 text-sm text-white duration-300 bg-[#0D6EFD] rounded-lg gap-x-3 hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+                    <span>Sign Up Now</span>
+
+                     <MdArrowRightAlt className="w-5 h-5"/>
+                </a>
+            </div>
         </div>
+        
+        <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700"/>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div>
+                <p className="font-semibold text-white">Quick Link</p>
+
+                <div className="flex flex-col items-start mt-5 space-y-2">
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Home</a>
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">All classes</a>
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">About us</a>
+                </div>
+            </div>
+
+            <div>
+                <p className="font-semibold text-white">Industries</p>
+
+                <div className="flex flex-col items-start mt-5 space-y-2">
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Education</a>
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Information Technology</a>
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">All category</a>
+                </div>
+            </div>
+
+            <div>
+                <p className="font-semibold text-white">Services</p>
+
+                <div className="flex flex-col items-start mt-5 space-y-2">
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Manage education</a>
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Experience teachers</a>
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Edu solutions</a>
+                </div>
+            </div>
+
+            <div>
+                <p className="font-semibold text-white">Contact Us</p>
+
+                <div className="flex flex-col items-start mt-5 space-y-2">
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500 flex gap-2 items-center"><FaPhone />+9934234332</a>
+                    <a href="#" className=" transition-colors duration-300 text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500 flex gap-2 items-center"><MdEmail />eduQuest@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        
+        <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700"/>
+        
+        <div className="flex flex-col items-center justify-between sm:flex-row">
+        <div className="lg:text-xl h-[100px] w-[150px]  md:h-[300px] md:min-w-[300px] flex items-center text-center relative"><div className="absolute -left-24"> <img className=" h-[150px] w-[150px]  md:h-[300px] md:min-w-[300px]" src={logo} alt="" /></div></div>
+
+            <p className="  text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">© Copyright 2021 eduQuest. All Rights Reserved.</p>
+        </div>
+    </div>
+</div>
     );
 };
 

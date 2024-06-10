@@ -8,6 +8,7 @@ import part7 from "../../../../public/partner7.png"
 import part8 from "../../../../public/partner8.png"
 import TitleSection from "../../../shared/TitleSection/TitleSection"
 import { FaHandsHelping } from "react-icons/fa"
+
 const Partner = () => {
     return (
         <div className="bg-base-200 mb-20  flex flex-col justify-center">
@@ -15,7 +16,7 @@ const Partner = () => {
            <div className="lg:max-w-[1440px] lg:p-8 mx-auto">
             <TitleSection icon={<FaHandsHelping />} heading={'Collaborators for SkillPath Success'} subHeading={'Our Partners'}></TitleSection>
            <h2 className="text-2xl font-semibold mb-6 text-center"></h2>
-           <div className=" grid grid-cols-8 items-center gap-16 ">
+           <div className=" grid px-3 lg:px-0 lg:grid-cols-8 md:grid-cols-4 grid-cols-3 items-center gap-5 md:gap-8 lg:gap-16 ">
                 <img src={part1}  alt="" />
                 <img src={part2}  alt="" />
                 <img src={part3}  alt="" />
@@ -26,6 +27,7 @@ const Partner = () => {
                 <img src={part8}  alt="" />
             </div>
            </div>
+          
         </div>
     );
 };

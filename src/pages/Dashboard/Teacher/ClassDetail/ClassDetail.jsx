@@ -37,32 +37,32 @@ const ClassDetail = () => {
     </>
   }
     return (
-        <div className="bg-base-200 min-h-screen">
-           <div className="w-4/6 mx-auto">
+        <div className="bg-base-200 lg:min-h-screen">
+           <div className="lg:w-4/6 mx-auto">
             <div>
-                <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="btn my-10 btn-outline text-white bg-pink-500"><FaPlus></FaPlus> Create</button>
+                <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="btn my-10 btn-outline text-white bg-[#0D6EFD]"><FaPlus></FaPlus> Create</button>
                 <Modal data={data} setCount={setCount} count={count}/>
               
             </div>
-           <div className="flex gap-16 py-10 pb-20">
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center lg:items-start lg:gap-16 py-10 pb-20">
                 <div className="shadow-xl p-8 font-medium rounded-xl h-[200px] w-[250px]">
                     <div className="flex justify-between">
                         <p>Total Enrolled</p>
-                        <p className="bg-pink-500 rounded-lg px-4 py-2 text-white text-3xl font-bold"><FaUsersRectangle  /></p>
+                        <p className="bg-[#0D6EFD] rounded-lg px-4 py-2 text-white text-3xl font-bold"><FaUsersRectangle  /></p>
                     </div>
                     <p className="text-4xl font-bold">+{info?.totalEnrolled}</p>
                 </div>
                 <div className="shadow-xl p-8 font-medium rounded-xl h-[200px] w-[250px]">
                     <div className="flex justify-between">
                         <p>Total Assignment</p>
-                        <p className="bg-pink-500 rounded-lg px-4 py-2 text-white text-3xl font-bold"><MdAssignment /></p>
+                        <p className="bg-[#0D6EFD] rounded-lg px-4 py-2 text-white text-3xl font-bold"><MdAssignment /></p>
                     </div>
                     <p className="text-4xl font-bold">+{info?.totalASsignments}</p>
                 </div>
                 <div className="shadow-xl p-8 font-medium rounded-xl h-[200px] w-[250px]">
                     <div className="flex justify-between">
                         <p> Per day assignment submitted</p>
-                        <p className="bg-pink-500 h-[48px] rounded-lg px-4 py-2 text-white text-3xl font-bold"><VscFileSubmodule /></p>
+                        <p className="bg-[#0D6EFD] h-[48px] rounded-lg px-4 py-2 text-white text-3xl font-bold"><VscFileSubmodule /></p>
                     </div>
                     <p className="text-4xl font-bold">+{info?.perDaySubmit}</p>
                 </div>

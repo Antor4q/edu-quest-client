@@ -66,32 +66,33 @@ const TechOnSkillPath = () => {
        }
     }
     return (
-        <div className="min-h-screen">
+        <div className="lg:min-h-screen">
             <div className="bg-no-repeat text-white  h-[400px] backdrop-blur-md mb-16 hero  bg-center bg-cover" style={{backgroundImage: `url(${group})`}} >
             <div className="hero-overlay bg-opacity-60 bg-gray-900"></div>
            
             </div>
-           <div className="h-[600px] max-w-[1420px]  mx-auto">
+           <div className=" lg:max-w-[1420px]  mx-auto">
            <TitleSection subHeading={data?.data?.status === 'Accepted' ?   'Teacher Request Approved':'As a new teacher'} heading={data?.data.status === 'Accepted' ?   'Get Started with Your New Teacher Role':'Hey! Lets Be a teacher'} icon={<FaChalkboardTeacher></FaChalkboardTeacher>}></TitleSection>
              {  data?.data?.status === 'Accepted' ?  
-               <div className="flex gap-4">
-                     <div className="w-2/5  justify-center flex flex-col   ml-40">
-                      <h2 className="text-3xl font-bold text-start mb-4">Hey! {user.displayName}</h2>
-                    <p className="font-medium  ">
+               <div className="flex lg:flex-row flex-col gap-4">
+                     <div className="lg:w-2/5  lg:justify-center flex flex-col   lg:ml-40">
+                      <h2 className="lg:text-3xl text-center lg:text-start text-2xl font-bold  mb-4">Hey! {user.displayName}</h2>
+                    <p className="font-medium  text-center lg:text-start">
                   Congratulations! Your request to become a teacher has been approved. You now have access to the teacher`s dashboard to start creating and managing your courses. Thank you for your patience and dedication. We look forward to seeing your positive impact on our community. 
                 </p>
-                <div className="flex   mt-5 gap-5">
-                <Link to="/dashboard/add-class" className="btn bg-[#B51B75] hover:btn-outline hover:text-[#B51B75] border-none text-white">Add New Class</Link>
+                <div className="flex justify-center lg:justify-start  mt-5 gap-5">
+                <Link to="/dashboard/add-class" className="btn bg-[#0D6EFD] hover:btn-outline hover:text-[#0D6EFD] border-none text-white">Add New Class</Link>
                 <Link to="/dashboard" className="btn btn-outline text-[#FFC107]">
                 Go to Dashboard
                 <FaArrowRightLong /></Link>
                 </div>
                     </div>
-                    <div className="w-3/5 ">
+                    <div className="lg:w-3/5 ">
                        <img src={cngt} alt="" />
                     </div>
                </div>
-               : <div className="bg-base-300 w-3/5 mx-auto p-10">
+               : <div className="px-3 md:px-0  my-10">
+                     <div className="bg-base-300 lg:w-3/5 mx-auto p-3 lg:p-10">
                  <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control">
                       <label className="label">
@@ -144,11 +145,12 @@ const TechOnSkillPath = () => {
                       <label className="flex h-[48px] items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900">
                             <input  {...register("image")}  name="image" type="file" />
                         </label>
-                       <input disabled={data?.data?.status === 'Rejected'} className="mt-3 btn bg-pink-500 text-white  rounded-lg hover:bg-pink-400" type="submit" value={data?.data?.status === 'Rejected' ? 'Request to another button':'Submit for review'} />
+                       <input disabled={data?.data?.status === 'Rejected'} className="mt-3 btn bg-[#0D6EFD] text-white  rounded-lg hover:bg-[#528be0]" type="submit" value={data?.data?.status === 'Rejected' ? 'Request to another button':'Submit for review'} />
                       </div>
                    
                   </form>
-              </div>}
+              </div>
+                </div>}
            </div>
         </div>
     );

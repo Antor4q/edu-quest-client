@@ -58,7 +58,7 @@ const SocialLogin = () => {
         <>
         
         <p>Or Sign In with</p>
-        <button onClick={handleGoogleSign} className="w-full btn text-[#B51B75] btn-outline my-4 rounded-lg px-6 py-3 border">Google</button>
+        <button onClick={handleGoogleSign} className="w-full btn text-[#0D6EFD] btn-outline my-4 rounded-lg px-6 py-3 border">Google</button>
         </>
     );
 };

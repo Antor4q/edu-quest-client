@@ -55,10 +55,10 @@ const AllClasses = () => {
         </>
     }
     return (
-        <div className="max-w-[1420px] min-h-screen  mx-auto">
+        <div className="max-w-[1420px] min-h-screen md:px-5 lg:px-0 px-3  mx-auto">
             <TitleSection icon={<PiVideoConferenceDuotone />} subHeading={'All classes'} heading={'Find Your Next Course'}></TitleSection>
-            <p className="w-3/5 mx-auto text-center">Browse all available classes in one place. Whether you`re just starting or looking to advance, you`ll find courses that fit your needs. Filter by category, level, or teacher to find the right class for you and start learning today.</p>
-            <div className="grid my-16 grid-cols-3 gap-10">
+            <p className="md:w-3/5 mx-auto text-center">Browse all available classes in one place. Whether you`re just starting or looking to advance, you`ll find courses that fit your needs. Filter by category, level, or teacher to find the right class for you and start learning today.</p>
+            <div className="grid lg:my-16 my-8 md:my-12 md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-10">
                 {
                     classes?.filter(item => item.title.toLowerCase().includes(search.toLowerCase())).map(item => <Card key={item._id} item={item}></Card>)
                 }
@@ -70,7 +70,7 @@ const AllClasses = () => {
                         page?.map((item,index) => <>
                          <button 
                          onClick={()=>setCurrentPage( item + 1)}
-                         className={`btn btn-outline  ${currentPage === item+1 && 'bg-pink-500 border-none text-white'}`} key={index}>{item + 1}</button>
+                         className={`btn btn-outline  ${currentPage === item+1 && 'bg-[#0D6EFD] border-none text-white'}`} key={index}>{item + 1}</button>
                         </>)
                      }
                      <button onClick={()=>handleNext()} className="btn btn-outline"><GrNext /></button>

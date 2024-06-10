@@ -32,8 +32,8 @@ const Reviews = () => {
         </>
     }
     return (
-       <div className="bg-base-200 my-20 py-5">
-             <div className="lg:max-w-[1440px]  my-10 mx-auto pt-4">
+       <div className="bg-base-200 px-4 md:px-0 my-10 lg:my-20 py-5">
+             <div className="lg:max-w-[1440px]  my-10 mx-auto py-4">
                 <TitleSection icon={<RiFeedbackFill />} heading={'What Our Learners Say'} subHeading={'Learners Feedback'}></TitleSection>
        
         <div>
@@ -41,7 +41,15 @@ const Reviews = () => {
             loop={true}
             spaceBetween={30}
             centeredSlides={true}
-            slidesPerView={3}
+            slidesPerView={
+                window.innerWidth <= 550
+                  ? 1
+                  : window.innerWidth <= 720
+                  ? 2
+                  : window.innerWidth > 720
+                  ? 3
+                  : 0
+              }
             
             navigation={true}
             modules={[Pagination, Navigation]}
@@ -51,7 +59,7 @@ const Reviews = () => {
         {
                 data?.map(item=> <>
                     <SwiperSlide key={item?._id} className="rounded-xl">
-                    <div className="card border  hover:shadow-lg  bg-none ">
+                    <div className="card border pb-4 md:pb-0  hover:shadow-lg  bg-none ">
                       <div className="avatar flex pt-7 justify-center">
                         <div className="w-24 rounded-full">
                             <img src={item?.image} />
@@ -61,7 +69,7 @@ const Reviews = () => {
                         <h2 className="card-title text-center">{item.name}</h2>
                         <p className="text-start">{item?.description.slice(0,150)}</p>
                         <div className="py-2 border-t-2 border-black w-full">
-                            <h2 className="text-xl font-semibold text-start">{item.classTitle}</h2>
+                            <h2 className="md:text-xl font-semibold text-start">{item.classTitle}</h2>
                         </div>
                     </div>
                     </div>

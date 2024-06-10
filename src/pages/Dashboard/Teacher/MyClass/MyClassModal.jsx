@@ -7,6 +7,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../../../hooks/useAuth";
 
 const MyClassModal = () => {
    const {id} = useParams()
@@ -14,7 +15,7 @@ const MyClassModal = () => {
    const {register,handleSubmit} = useForm()
    const [toggle,setToggle] = useState(true)
    const [link,setLink] = useState("")
-   
+   const {user} = useAuth()
    
    
    const {data:classes,refetch,isPending} = useQuery({
@@ -29,7 +30,7 @@ const MyClassModal = () => {
    
  
     const onSubmit = async(data) => {
-      
+       console.log(data)
         try{
             if(data?.image?.length > 0){
                 const formData = new FormData()
@@ -37,12 +38,13 @@ const MyClassModal = () => {
                 const {data : url} = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`,formData)
                 setLink(url?.data?.display_url)
             }
+           
             const course = {
-                title : data.title,
-                name : classes.name,
-                email : classes?.email,
-                price : data.price,
-                description : data.description,
+                title : data?.title,
+                name : classes.name || user?.displayName,
+                email : classes?.email || user?.email,
+                price : data?.price,
+                description : data?.description,
                 image : link  ?  link : classes?.image,
                 status : classes?.status
                
@@ -66,7 +68,11 @@ const MyClassModal = () => {
       
     }
     if(isPending){
-      return <span className="font-bold text-4xl text-center">Loading...</span>
+      return <>
+      <div className="flex max-w-screen h-screen items-center text-center justify-center">
+      <progress className="progress w-56"></progress>
+      </div>
+      </>
    }
     return (
       

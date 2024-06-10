@@ -84,7 +84,7 @@ const AdminAllClass = () => {
                         page?.map((item,index) => <>
                          <button 
                          onClick={()=>setCurrentPage( item + 1)}
-                         className={`btn btn-outline  ${currentPage === item+1 && 'bg-pink-500 border-none text-white'}`} key={index}>{item + 1}</button>
+                         className={`btn btn-outline  ${currentPage === item+1 && 'bg-[#0D6EFD] border-none text-white'}`} key={index}>{item + 1}</button>
                         </>)
                      }
                      <button onClick={()=>handleNext()} className="btn btn-outline"><GrNext /></button>

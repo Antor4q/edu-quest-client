@@ -57,13 +57,16 @@ const Users = () => {
         <div>
            
             <TitleSection icon={<FaUsersCog />} subHeading={'User Management'} heading={'Overview of All Registered Users'}></TitleSection>
-            <div className="lg:w-3/4 lg:min-h-[750px] p-10 m-10 rounded-lg bg-base-200  lg:mx-auto">
-                 <div className="flex justify-evenly">
-                    <h2 className="text-2xl font-semibold">Total Users : {data?.length}</h2>
-                 <label  className="input mb-6 w-1/4 input-bordered rounded-full  flex items-center gap-2">
+              <div className="lg:w-1/4 flex justify-end w-3/4 ">
+              <label  className="input mb-6  input-bordered rounded-full  flex items-center gap-2">
                     <input onChange={(e)=>handleSearch(e.target.value)} type="text" className="grow" placeholder="Search by email" />
                     <IoSearch />
                     </label>
+              </div>
+            <div className="lg:w-3/4 lg:min-h-[750px] p-10 m-10 rounded-lg  bg-base-200  lg:mx-auto">
+                 <div className="flex justify-evenly">
+                    <h2 className="text-2xl font-semibold">Total Users : {data?.length}</h2>
+                
                  </div>
                 <div className="overflow-x-auto">
                     <table className="table">
@@ -95,7 +98,7 @@ const Users = () => {
                         page?.map((item,index) => <>
                          <button 
                          onClick={()=>setCurrentPage( item + 1)}
-                         className={`btn btn-outline  ${currentPage === item+1 && 'bg-pink-500 border-none text-white'}`} key={index}>{item + 1}</button>
+                         className={`btn btn-outline  ${currentPage === item+1 && 'bg-[#0D6EFD] border-none text-white'}`} key={index}>{item + 1}</button>
                         </>)
                      }
                      <button onClick={()=>handleNext()} className="btn btn-outline"><GrNext /></button>

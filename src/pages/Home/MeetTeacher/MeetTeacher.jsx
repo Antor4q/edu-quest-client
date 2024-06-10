@@ -13,7 +13,7 @@ const MeetTeacher = () => {
      const data = users?.filter(user => user.role !== 'Student')
     
     return (
-        <div className="lg:my-28">
+        <div className="lg:my-28 my-16 md:px-5 px-3 lg:px-0">
             <div className="lg:max-w-[1440px]  mx-auto">
                 <TitleSection icon={<PiChalkboardTeacherFill />} heading={'Get to Know Our Expert Teachers'} subHeading={'Our Teachers'}></TitleSection>
                 <div className="py-6">
@@ -21,7 +21,15 @@ const MeetTeacher = () => {
                         loop={true}
                         spaceBetween={30}
                         centeredSlides={true}
-                        slidesPerView={3}
+                        slidesPerView={
+                            window.innerWidth <= 550
+                              ? 1
+                              : window.innerWidth <= 720
+                              ? 2
+                              : window.innerWidth > 720
+                              ? 3
+                              : 0
+                          }
                         autoplay={{
                             delay: 2500,
                             disableOnInteraction: false,
@@ -33,25 +41,21 @@ const MeetTeacher = () => {
                             data?.map(user =>    <SwiperSlide key={user._id}>
                                 <div>
                                 <div className="avatar border-8 rounded-full grid items-center">
-                                <div className="w-80  relative   rounded-full">
+                                <div className="lg:w-80 w-56  relative   rounded-full">
                                 
                                     <img src={user.image} />
                                     
                                    
                                 </div>
                                    <div  className="relative tooltip w-14 h-14 z-50 -mr-24 -mt-40  " data-tip="Book Consultancy">
-                                        <p className="text-4xl  cursor-pointer  p-2 text-white rounded-full z-10 font-bold bg-pink-500"><FaPlus></FaPlus></p>
-                                        {/* <div className="flex opacity-0 transition-opacity duration-700 group-hover:opacity-100 z-10 hover:cursor-pointer  hover:text-pink-600 text-4xl  items-center bottom-10 left-24  gap-3">
-                                            <FaFacebook></FaFacebook>
-                                        <FaLinkedin></FaLinkedin>
-                                        <FaInstagram></FaInstagram>
-                                     </div> */}
+                                        <p className="text-4xl  cursor-pointer  p-2 text-white rounded-full z-10 font-bold bg-[#0D6EFD]"><FaPlus></FaPlus></p>
+                                      
                                     </div>
                                    
                                 
                                 </div>
                                    <h2 className="text-2xl font-bold my-3">{user.name}</h2>
-                                   <p className="text-pink-500">{user.role === 'Admin' ? 'Founder & CEO': user.role}</p>
+                                   <p className="text-[#0D6EFD]">{user.role === 'Admin' ? 'Founder & CEO': user.role}</p>
                                 </div>
                             </SwiperSlide>
                          )

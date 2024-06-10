@@ -42,12 +42,12 @@ const Details = () => {
         </>
     }
     return (
-        <div className=" min-h-screen ">
+        <div className=" min-h-screen lg:px-0 md:px-5 px-3">
             <div className="bg-no-repeat text-white  h-[400px] backdrop-blur-md mb-16 hero  bg-center bg-cover" style={{backgroundImage: `url(${group})`}} >
                 <div className="hero-overlay bg-opacity-70 bg-gray-900"></div>
                         <h2 className="text-5xl font-bold text-center">{data?.title}</h2>
                 </div>
-            <div className="lg:max-w-[1440px] lg:mb-10 flex gap-8 mx-auto">
+            <div className="lg:max-w-[1440px] lg:mb-10 flex lg:flex-rew flex-col gap-5 lg:gap-8 mx-auto">
               <div className="flex-1">
                <div className=" border p-10 rounded-xl mx-auto">
                     <img  className="w-full rounded-xl h-[500px] bg-cover" src={data?.image} alt="" />
@@ -74,9 +74,9 @@ const Details = () => {
                             </div>
                         </TabPanel>
                         <TabPanel >
-                            <div className="h-[400px]  flex gap-5 my-10 mx-auto">
-                               <div className="border-4 h-[300px] rounded-lg shadow-xl">
-                                  <img className="h-[270px] w-[350px]" src={user?.photoURL} alt="" />
+                            <div className="lg:h-[400px] h-[200px] md:h-[300px]  flex gap-5 my-10 mx-auto">
+                               <div className="border-4 h-[250px] rounded-lg shadow-xl">
+                                  <img className="lg:h-[270px] h-[230px] w-full lg:w-[350px]" src={user?.photoURL} alt="" />
                                </div>
                                <div className="bg-pink-100 flex flex-col justify-center h-[300px] rounded-lg p-10 w-full">
                                <p className="font-medium"> {data?.name}</p>
@@ -91,7 +91,7 @@ const Details = () => {
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <div className="h-[400px] my-5 mx-auto">
+                            <div className="lg:h-[400px] h-[300px] my-5 mx-auto">
                             <h2 className="text-2xl mb-5 font-bold">What our learners say </h2>
                                <DetailsRev data={feedback} />
                            
@@ -101,8 +101,8 @@ const Details = () => {
                     </Tabs>
                  </div>
               </div>
-              <div className="w-[300px] rounded-lg p-5 border">
-                  <div >
+              <div className="lg:w-[300px] mb-10 lg:mb-0 lg:h-[570px] rounded-lg p-5 border">
+                  <div className="lg:w-[250px] lg:h-[220px] w-full">
                      <ReactPlayer  width={'250px'} height={'220px'} controls url={'https://www.youtube.com/watch?v=5O5e0nnVulY'}></ReactPlayer>
                   </div>
                   <p className="text-2xl my-4 font-bold">${data?.price}</p>

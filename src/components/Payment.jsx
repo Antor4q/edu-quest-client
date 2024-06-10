@@ -24,16 +24,18 @@ const Payment = () => {
     return <span className="font-bold text-4xl text-center h-screen">Loading....</span>
    }
     return (
-        <div className="min-h-screen">
-            <div className="max-w-[1440px] mx-auto">
+        <div className="">
+            <div className="min-h-screen px-3 md:px-5 lg:px-0">
+            <div className="lg:max-w-[1440px] mx-auto">
                 <TitleSection subHeading={'Complete this step'} heading={'Hey! Pay for this class'}></TitleSection>
 
-               <div className="w-1/3 bg-pink-50 p-10 h-[200px]  rounded-xl mx-auto">
+               <div className="lg:w-1/3  bg-base-200 p-10 h-[200px]  rounded-xl mx-auto">
                <Elements stripe={stripePromise}>
                     <CheckoutForm data={data}/>
                 </Elements>
                </div>
             </div>
+        </div>
         </div>
     );
 };
