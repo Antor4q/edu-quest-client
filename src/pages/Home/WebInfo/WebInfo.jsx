@@ -1,11 +1,12 @@
 import { GrImpact } from "react-icons/gr";
 import web from "../../../../public/webInfo.webp"
-import useAxios from "../../../hooks/useAxios";
+
 import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const WebInfo = () => {
 
-    const axiosPublic = useAxios()
+    const axiosPublic = useAxiosPublic()
     const {data} = useQuery({
         queryKey: ['info'],
         queryFn: async()=>{

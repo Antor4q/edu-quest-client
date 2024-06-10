@@ -68,7 +68,7 @@ const UsersRow = ({user,index,refetch}) => {
                     <button onClick={()=>handleMakeAdmin(user._id)} disabled={user.role === 'Admin'} className="btn text-white bg-pink-500 text-xl font-medium"><GrUserAdmin /></button>
                 </td>
                 <td>
-                    <button onClick={()=>handleDelete(user._id)} className="btn text-white bg-red-600 text-xl font-medium"><TiUserDelete /></button>
+                    <button onClick={()=>handleDelete(user._id)} disabled={user.name === 'Ahmed Antor'} className="btn text-white bg-red-600 text-xl font-medium"><TiUserDelete /></button>
                 </td>
           </tr>
     );

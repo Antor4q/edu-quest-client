@@ -10,13 +10,16 @@ import usePagination from "../../../hooks/usePagination";
 
 const AdminAllClass = () => {
   
-    const {data:totalCounts} = useTotalCounts()
+    const {data,isPending} = useTotalCounts()
+    const totalClasses = data?.totalClasses || 11
     const perPageClasses = 10
-    const pages = Math.ceil(totalCounts.totalClasses / perPageClasses)
+ 
+    const pages = Math.ceil(totalClasses / perPageClasses)
     const page = [...Array(pages).keys()]
+   
     const [currentPage,setCurrentPage] = useState(1)
     
-    const {data:classes,refetch} = usePagination("classes",currentPage,perPageClasses)
+    const {data:classes,refetch,isPending:loaded} = usePagination("classes",currentPage,perPageClasses)
 
 
     useEffect(()=>{
@@ -33,6 +36,14 @@ const AdminAllClass = () => {
       if(currentPage < page.length){
           setCurrentPage( currentPage + 1)
       }
+  }
+
+  if(isPending || loaded){
+    return  <>
+    <div className="flex max-w-screen h-screen items-center text-center justify-center">
+    <progress className="progress w-56"></progress>
+    </div>
+    </>
   }
    
     return (

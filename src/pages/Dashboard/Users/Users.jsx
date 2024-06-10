@@ -6,15 +6,18 @@ import UsersRow from "./UsersRow";
 import { IoSearch } from "react-icons/io5";
 import useAuth from "../../../hooks/useAuth";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+
 import { GrNext, GrPrevious } from "react-icons/gr";
+import useTotalCounts from "../../../hooks/useTotalCounts";
 
 
 const Users = () => {
     
     const {search,setSearch} = useAuth()
    
-    const {totalUsers} = useLoaderData()
+  
+    const {data:totalCount,isPending} = useTotalCounts()
+    const totalUsers = totalCount?.totalUsers || 11
     const perPageUser = 10
     const pages = Math.ceil(totalUsers / perPageUser)
     const page = [...Array(pages).keys()]
@@ -43,7 +46,13 @@ const Users = () => {
             setCurrentPage( currentPage + 1)
         }
     }
-   
+   if(isPending){
+    return  <>
+    <div className="flex max-w-screen h-screen items-center text-center justify-center">
+    <progress className="progress w-56"></progress>
+    </div>
+    </>
+   }
     return (
         <div>
            

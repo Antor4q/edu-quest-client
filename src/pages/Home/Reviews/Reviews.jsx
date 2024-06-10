@@ -8,11 +8,12 @@ import { Navigation, Pagination } from 'swiper/modules';
 import TitleSection from "../../../shared/TitleSection/TitleSection";
 import { RiFeedbackFill } from "react-icons/ri";
 import { useQuery } from "@tanstack/react-query";
-import useAxios from "../../../hooks/useAxios";
+
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const Reviews = () => {
    
-     const axiosPublic = useAxios()
+     const axiosPublic = useAxiosPublic()
    
 
     const {data,isPending} = useQuery({

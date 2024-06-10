@@ -1,13 +1,14 @@
 import PropTypes from "prop-types"
 import ReactStars from "react-rating-stars-component";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import useAxios from "../../../hooks/useAxios";
+
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 const FeedbackModal = ({id}) => {
-    const axiosSecure = useAxios()
+    const axiosSecure = useAxiosPublic()
     const {user} = useAuth()
     const [rating, setRating] = useState(null)
     const {register,handleSubmit,reset,formState: { errors },} = useForm()
@@ -54,7 +55,7 @@ const FeedbackModal = ({id}) => {
         <dialog id="my_modal_3" className="modal">
   <div className="modal-box">
     <form method="dialog">
-      {/* if there is a button in form, it will close the modal */}
+    
       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
     <h3 className="font-bold text-lg">Hey! {user?.displayName}</h3>

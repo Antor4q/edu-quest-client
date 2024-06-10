@@ -3,16 +3,17 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../../shared/SocialLogin";
-import useAxios from "../../hooks/useAxios";
+
 import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const SignUp = () => {
     const {signUp,profileUpdate} = useAuth()
-    const axiosPublic = useAxios()
+    const axiosPublic = useAxiosPublic()
     const [showPassword, setShowPassword] = useState(false)
     
       const {register,handleSubmit,reset,formState: { errors },} = useForm()
@@ -71,9 +72,7 @@ const SignUp = () => {
                 <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
                    <div>
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
-                            <div className="flex justify-center mx-auto">
-                                <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt=""/>
-                            </div>
+                           
                             
                             <div className="flex items-center justify-center mt-6">
                             

@@ -3,25 +3,29 @@ import TitleSection from "../../shared/TitleSection/TitleSection";
 import { PiVideoConferenceDuotone } from "react-icons/pi";
 import Card from "./Card";
 import useAuth from "../../hooks/useAuth";
-import useTotalCounts from "../../hooks/useTotalCounts";
+
 import { useEffect, useState } from "react";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import usePagination from "../../hooks/usePagination";
+
+import useTotalCounts from "../../hooks/useTotalCounts";
 
 
 const AllClasses = () => {
    
     const {search} = useAuth()
       const status = 'Accepted'
-    const {data:totalCounts} = useTotalCounts()
+
+     const {data:totalCounts,isPending:loaded} = useTotalCounts()
+  
     const perPageClasses = 10
-    const totalClasses = totalCounts?.totalClasses || 12
+   const totalClasses = totalCounts?.totalClasses || 11
     const pages = Math.ceil(totalClasses / perPageClasses)
     const page = [...Array(pages).keys()]
     
     const [currentPage,setCurrentPage] = useState(1)
     
-    const {data:classes,refetch} = usePagination(`classes/${status}`,currentPage,perPageClasses)
+    const {data:classes,refetch,isPending} = usePagination(`classes/${status}`,currentPage,perPageClasses)
     
     useEffect(()=>{
         refetch()
@@ -43,7 +47,13 @@ const AllClasses = () => {
             setCurrentPage( currentPage + 1)
         }
     }
- 
+    if(loaded || isPending ){
+        return  <>
+        <div className="flex max-w-screen h-screen items-center text-center justify-center">
+        <progress className="progress w-56"></progress>
+        </div>
+        </>
+    }
     return (
         <div className="max-w-[1420px] min-h-screen  mx-auto">
             <TitleSection icon={<PiVideoConferenceDuotone />} subHeading={'All classes'} heading={'Find Your Next Course'}></TitleSection>

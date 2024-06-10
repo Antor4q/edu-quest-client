@@ -34,7 +34,8 @@ export const router = createBrowserRouter([
         },
         {
             path: "allClasses",
-            element: <AllClasses></AllClasses>
+            element: <AllClasses></AllClasses>,
+           
         },
         {
           path: "details/:id",
@@ -62,11 +63,11 @@ export const router = createBrowserRouter([
       path : "dashboard",
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
-        // admin routes
+      
         {
           path: "users",
-          element: <Users></Users>,
-          loader : ()=> fetch("http://localhost:5000/pagination")
+          element: <Users></Users>
+          
         },
         {
           path: "profile",
@@ -84,7 +85,7 @@ export const router = createBrowserRouter([
           path: "class/:id",
           element: <ClassDetails></ClassDetails>
         },
-        // teacher routes
+       
         {
           path : "add-class",
           element: <AddClass></AddClass>
@@ -101,7 +102,7 @@ export const router = createBrowserRouter([
           path: "my-class/:id",
           element: <ClassDetail></ClassDetail>
         },
-      //  student routes
+     
        {
         path: "myenroll-class",
         element: <MyEnrollClass></MyEnrollClass>
