@@ -9,7 +9,7 @@ const Navbar = () => {
     const nav = <>
       <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/">Home</NavLink></li>
       <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/allClasses">All Classes</NavLink></li>
-      <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/techOn">Tech On SkillPath</NavLink></li>
+      <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/techOn">Tech On EduQuest</NavLink></li>
     </>
     const handleSearch = search => {
         setSearch(search)
@@ -34,7 +34,7 @@ const Navbar = () => {
                 </ul>
                 </div>
                 
-                <div className="lg:text-xl h-[100px] w-[150px]  md:h-[300px] md:min-w-[300px] flex items-center text-center relative"><div className="absolute -left-24"> <img className=" h-[150px] w-[150px]  md:h-[300px] md:min-w-[300px]" src={logo} alt="" /></div></div>
+                <Link to="/" className="lg:text-xl h-[100px] w-[150px]  md:h-[300px] md:min-w-[300px] flex items-center text-center relative"><div className="absolute -left-5 lg:-left-24"> <img className=" h-[150px] w-[150px]  md:h-[300px] md:min-w-[300px]" src={logo} alt="" /></div></Link>
                 <div className="ml-8 hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {nav}

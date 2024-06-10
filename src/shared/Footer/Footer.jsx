@@ -5,7 +5,7 @@ import { FaPhone } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <div className="bg-white dark:bg-gray-900 bg-no-repeat lg:max-h-[650px] bg-cover" style={{backgroundImage : `url(${footer})`}}>
+        <div className="bg-white dark:bg-gray-900 bg-no-repeat  bg-cover" style={{backgroundImage : `url(${footer})`}}>
     <div className="container px-6 py-12 mx-auto">
         <div className="md:flex md:-mx-3 md:items-center md:justify-between">
             <h1 className="text-xl font-semibold tracking-tight  md:mx-3 xl:text-2xl text-white">Subscribe our newsletter to get update.</h1>

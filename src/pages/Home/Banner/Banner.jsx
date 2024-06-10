@@ -42,7 +42,7 @@ const Banner = () => {
                     <h2 className="md:text-6xl text-3xl  md:text-start  font-bold  lg:w-1/2">Hey! Lets Start With <span className="text-[#0D6EFD]">EduQuest</span> </h2>
                     <p className=" lg:my-7 md:text-start ">Explore our collection of courses to learn new skills. Start your journey towards personal and professional growth today!</p>
                     <div className="flex mt-5 justify-center lg:justify-start lg:mt-0 gap-2 md:gap-5">
-                      <Link to="/techOn" className="btn btn-sm bg-[#0D6EFD] hover:btn-outline hover:text-[#0D6EFD] border-none text-white">Tech On SkillPath</Link>
+                      <Link to="/techOn" className="btn btn-sm bg-[#0D6EFD] hover:btn-outline hover:text-[#0D6EFD] border-none text-white">Tech On EduQuest</Link>
                       <Link to="/allClasses" className="btn btn-sm btn-outline text-[#FFC107]">
                       Browse Classes
                       <FaArrowRightLong /></Link>
@@ -64,7 +64,7 @@ const Banner = () => {
                     <h2 className="md:text-6xl text-3xl  md:text-start  font-bold  lg:w-1/2">Learn Anywhere, <span className="text-[#0D6EFD]">Anytime</span> </h2>
                     <p className=" lg:my-7 md:text-start ">Access our diverse courses at your convenience. Learn at your own pace and empower yourself with knowledge.</p>
                     <div className="flex mt-5 justify-center lg:justify-start lg:mt-0 gap-2 md:gap-5">
-                      <Link to="/techOn" className="btn btn-sm bg-[#0D6EFD] hover:btn-outline hover:text-[#0D6EFD] border-none text-white">Tech On SkillPath</Link>
+                      <Link to="/techOn" className="btn btn-sm bg-[#0D6EFD] hover:btn-outline hover:text-[#0D6EFD] border-none text-white">Tech On EduQuest</Link>
                       <Link to="/allClasses" className="btn btn-sm btn-outline text-[#FFC107]">
                       Browse Classes
                       <FaArrowRightLong /></Link>
@@ -86,7 +86,7 @@ const Banner = () => {
                     <h2 className="md:text-6xl text-3xl  md:text-start  font-bold  lg:w-1/2">Start Learning <span className="text-[#0D6EFD]">Today</span> </h2>
                     <p className=" lg:my-7 my-5 md:text-start ">Begin your learning journey with our easy-to-follow courses. Dive into exciting topics and expand your horizons.</p>
                     <div className="flex mt-5 justify-center lg:justify-start lg:mt-0 gap-2 md:gap-5">
-                      <Link to="/techOn" className="btn btn-sm bg-[#0D6EFD] hover:btn-outline hover:text-[#0D6EFD] border-none text-white">Tech On SkillPath</Link>
+                      <Link to="/techOn" className="btn btn-sm bg-[#0D6EFD] hover:btn-outline hover:text-[#0D6EFD] border-none text-white">Tech On EduQuest</Link>
                       <Link to="/allClasses" className="btn btn-sm btn-outline text-[#FFC107]">
                       Browse Classes
                       <FaArrowRightLong /></Link>
