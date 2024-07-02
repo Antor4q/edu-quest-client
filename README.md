@@ -1,8 +1,7 @@
 # EduQuest
 
-Admin-email : ahmed@gmail.com
-Admin-pass : AhmedAntor
-Live-link: https://skillpath-ce375.web.app
+
+###Live-link: https://skillpath-ce375.web.app
 
 EduQuest is an educational user frinedly platfrom. EduQuest will revolutionize the way educational institutions,
 tutors, and students interact, making skill learning and class management more efficient and accessible than ever before. 
