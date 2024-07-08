@@ -3,8 +3,8 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosApi = axios.create({
-    // baseURL : 'https://skill-path-server.vercel.app'
-    baseURL : 'http://localhost:5000'
+    baseURL : 'https://skill-path-server.vercel.app'
+    
 })
 const useAxios = () => {
   const {logOut} = useAuth()
