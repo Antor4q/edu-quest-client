@@ -1,11 +1,11 @@
 import { MdArrowRightAlt, MdEmail } from "react-icons/md";
-import logo from "../../assets/logo.png"
+
 import footer from "../../assets/footer.jpg"
 import { FaPhone } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <div className="bg-white dark:bg-gray-900 bg-no-repeat  bg-cover" style={{backgroundImage : `url(${footer})`}}>
+        <div className="bg-white lg:h-[500px] dark:bg-gray-900 bg-no-repeat  bg-cover" style={{backgroundImage : `url(${footer})`}}>
     <div className="container px-6 py-12 mx-auto">
         <div className="md:flex md:-mx-3 md:items-center md:justify-between">
             <h1 className="text-xl font-semibold tracking-tight  md:mx-3 xl:text-2xl text-white">Subscribe our newsletter to get update.</h1>
@@ -65,7 +65,7 @@ const Footer = () => {
         <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700"/>
         
         <div className="flex flex-col items-center justify-between sm:flex-row">
-        <div className="lg:text-xl h-[100px] w-[150px]  md:h-[300px] md:min-w-[300px] flex items-center text-center relative"><div className="absolute -left-24"> <img className=" h-[150px] w-[150px]  md:h-[300px] md:min-w-[300px]" src={logo} alt="" /></div></div>
+        
 
             <p className="  text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">© Copyright 2021 eduQuest. All Rights Reserved.</p>
         </div>

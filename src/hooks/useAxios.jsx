@@ -3,7 +3,8 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosApi = axios.create({
-    baseURL : 'https://skill-path-server.vercel.app'
+    // baseURL : 'https://skill-path-server.vercel.app'
+    baseURL : 'http://localhost:5000'
 })
 const useAxios = () => {
   const {logOut} = useAuth()
@@ -25,7 +26,7 @@ const useAxios = () => {
        
         const status = error.response.status
         if(status === 401 || status === 403){
-          console.log(status,'inside axios ')
+         
            await logOut()
            navigate("/signIn")
         }

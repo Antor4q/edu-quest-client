@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import useAxios from "../../../../hooks/useAxios";
 import Swal from "sweetalert2";
 import PropTypes from "prop-types"
+import useAuth from "../../../../hooks/useAuth";
 
 const Modal = ({setCount,count,data:dat}) => {
     const {register,handleSubmit,reset,formState: { errors },} = useForm()
     const axiosSecure = useAxios()
+    const {user} = useAuth()
   
     const {mutateAsync} = useMutation({
         mutationKey: ['assignment'],
@@ -44,7 +46,7 @@ const Modal = ({setCount,count,data:dat}) => {
                
                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
-                <h3 className="font-bold  text-lg">Hey!</h3>
+                <h3 className="font-bold  text-lg">Hey! {user?.displayName}</h3>
                 <p className="py-4">Create a new Assignment</p>
                 <div>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -70,7 +72,7 @@ const Modal = ({setCount,count,data:dat}) => {
                              <textarea placeholder="Short Description" {...register("description")} className="textarea textarea-bordered textarea-lg w-full " ></textarea>
                              {errors.description && <span className="text-red-600">This field is required</span>}
                             </div>  
-                            <input  className="mt-3 btn bg-pink-500 text-white  rounded-lg hover:bg-pink-400" type="submit" value="Add assignment" />
+                            <input  className="mt-3 btn bg-[#0D6EFD] text-white  rounded-lg hover:bg-[#3d8bff]" type="submit" value="Add assignment" />
                     </form>
                 </div>
             </div>

@@ -5,6 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import useAxios from "../../../../hooks/useAxios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import CommonBanner from "../../../../shared/CommonBanner/CommonBanner";
 
 
 const AddClass = () => {
@@ -63,8 +64,14 @@ const AddClass = () => {
         </div>
     }
     return (
-        <div>
-            <div className="w-2/3 mx-auto mt-20">
+        <div >
+          <CommonBanner title={`Add a new class`}/>
+          
+           <div className="flex gap-5 lg:px-10">
+            <div className="w-1/2">
+
+            </div>
+           <div className="w-1/2 lg:pb-20 pb-16 mx-auto mt-20">
                <form onSubmit={handleSubmit(onSubmit)}>
                      
                     <div className="form-control w-full">
@@ -107,11 +114,12 @@ const AddClass = () => {
                             <input  {...register("image")}  name="image" type="file" />
                             {errors.image && <span className="text-red-600">This field is required</span>}
                         </label>
-                       <input  className="mt-3 btn bg-pink-500 text-white  rounded-lg hover:bg-pink-400" type="submit" value="Add class" />
+                       <input  className="mt-3 btn bg-[#0D6EFD] text-white  rounded-lg hover:bg-[#4d7fcc]" type="submit" value="Add class" />
                       </div>
                    
                   </form>
             </div>
+           </div>
         </div>
     );
 };

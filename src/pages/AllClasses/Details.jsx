@@ -47,7 +47,7 @@ const Details = () => {
                 <div className="hero-overlay bg-opacity-70 bg-gray-900"></div>
                         <h2 className="text-5xl font-bold text-center">{data?.title}</h2>
                 </div>
-            <div className="lg:max-w-[1440px] lg:mb-10 flex lg:flex-rew flex-col gap-5 lg:gap-8 mx-auto">
+            <div className="lg:max-w-[1440px] lg:mb-10 flex lg:flex-row flex-col gap-5 lg:gap-8 mx-auto">
               <div className="flex-1">
                <div className=" border p-10 rounded-xl mx-auto">
                     <img  className="w-full rounded-xl h-[500px] bg-cover" src={data?.image} alt="" />

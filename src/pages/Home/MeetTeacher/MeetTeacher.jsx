@@ -5,12 +5,23 @@ import 'swiper/css/navigation';
 import 'swiper/css';
 import { Autoplay, Pagination } from 'swiper/modules';
 // import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import useUsers from "../../../hooks/useUsers";
+
 import { FaPlus } from "react-icons/fa6";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const MeetTeacher = () => {
-    const {data:users} = useUsers()
-     const data = users?.filter(user => user.role !== 'Student')
+    const axiosPublic = useAxiosPublic()
+   
+    const {data:meet} = useQuery({
+        queryKey: ["users"],
+        queryFn: async()=>{
+            const {data} = await axiosPublic.get("/meetTeachers")
+            return data
+        }
+    })
+  
+     const data = meet?.filter(user => user.role !== 'Student')
     
     return (
         <div className="lg:my-28 my-16 md:px-5 px-3 lg:px-0">

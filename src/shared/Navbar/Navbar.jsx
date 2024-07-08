@@ -4,12 +4,16 @@ import { FaList } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
 import logo from "../../assets/logo.png"
 
+
 const Navbar = () => {
     const {user,logOut,setSearch} = useAuth()
     const nav = <>
-      <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/">Home</NavLink></li>
-      <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/allClasses">All Classes</NavLink></li>
-      <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/techOn">Tech On EduQuest</NavLink></li>
+     
+      <li><NavLink style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/">Home </NavLink></li>
+     
+      <li><NavLink className="hover:text-[#0D6EFD]" style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/allClasses">All Classes</NavLink></li>
+      <li><NavLink className="hover:text-[#0D6EFD]" style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/techOn">Tech On EduQuest</NavLink></li>
+      <li><NavLink className="hover:text-[#0D6EFD] " style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/blogs">Blogs</NavLink></li>
     </>
     const handleSearch = search => {
         setSearch(search)
@@ -22,7 +26,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="py-2">
+        <div className="py-2 ">
              <div className="navbar lg:max-w-[1420px] h-[100px]  lg:mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
@@ -34,9 +38,9 @@ const Navbar = () => {
                 </ul>
                 </div>
                 
-                <Link to="/" className="lg:text-xl h-[100px] w-[150px]  md:h-[300px] md:min-w-[300px] flex items-center text-center relative"><div className="absolute -left-5 lg:-left-24"> <img className=" h-[150px] w-[150px]  md:h-[300px] md:min-w-[300px]" src={logo} alt="" /></div></Link>
+                <Link to="/" className="lg:text-xl lg:mr-24 flex items-center text-center relative"><div className="absolute -left-5 lg:-left-24"> <img className="min-w-[200px] h-[200px]   md:h-[300px] md:min-w-[300px]" src={logo} alt="" /></div></Link>
                 <div className="ml-8 hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu ml-10 font-semibold text-base menu-horizontal px-1">
                         {nav}
                     </ul>
                 </div>

@@ -32,7 +32,13 @@ const PopularClasses = () => {
     </>
   }
      return (
-        <div className="lg:max-w-[1440px] px-5 my-10 mx-auto pt-4">
+      
+        <>
+         <div className='relative'>
+             {/* <img className='animate-spin -left-10 absolute' src="https://themeholy.com/wordpress/edura/wp-content/uploads/2023/07/shape_2_1.png" alt="" /> */}
+          </div>
+         <div className="lg:max-w-[1440px] px-5 my-10 mx-auto pt-4">
+         
             <TitleSection subHeading={"Popular Classes"} heading={"Our Popular Classes"} icon={<FaBook></FaBook>}></TitleSection>
             <div>
                 <Swiper
@@ -56,7 +62,7 @@ const PopularClasses = () => {
               {popularClasses?.map(item => <>
               
                 <SwiperSlide key={item?._id}>
-              <div className="w-full z-10 mb-5 px-5 text-start max-w-[350px] max-h-[400px]  overflow-hidden  rounded-lg shadow-lg dark:bg-gray-800">
+              <div className="w-full z-10 mb-5  text-start max-w-[350px] max-h-[400px]  overflow-hidden  rounded-lg shadow-lg dark:bg-gray-800">
                     <img className="object-cover object-center w-full max-h-[200px] min-h-[200px]" src={item?.image} alt="avatar"/>
 
                     <div className="flex items-center px-6 py-1 bg-gray-900">
@@ -82,6 +88,7 @@ const PopularClasses = () => {
             </div>
            
         </div>
+        </>
     );
 };
 

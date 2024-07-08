@@ -66,7 +66,7 @@ const MyClassCard = ({cla,refetch,isPending}) => {
                 <div className="flex items-center mt-4 justify-evenly">
                         <Link  to={`/dashboard/my-class/${_id}`} disabled={status !== 'Accepted'} className="btn text-lgbtn-outline bg-green-500 text-white items-center gap-3"><FaEye></FaEye>See details</Link>
 
-                        <Link to={`/dashboard/my-classUpdate/${cla?._id}`} className="btn  btn-outline bg-pink-500 text-white items-center gap-3"><FaEdit></FaEdit>Update</Link>
+                        <Link to={`/dashboard/my-classUpdate/${cla?._id}`} className="btn  btn-outline bg-[#0D6EFD] text-white items-center gap-3"><FaEdit></FaEdit>Update</Link>
                         
 
                         <button onClick={()=> handleDelete(_id)} className="btn btn-outline  bg-red-500 text-white items-center gap-3"><MdDelete></MdDelete>Delete</button>

@@ -5,6 +5,7 @@ import BookLive from "../BookLive/BookLive";
 import MeetTeacher from "../MeetTeacher/MeetTeacher";
 import Partner from "../Partner/Partner";
 import PopularClasses from "../PopularClasses/PopularClasses";
+import RecentBlogs from "../RecentBlogs/RecentBlogs";
 import Reviews from "../Reviews/Reviews";
 import WebInfo from "../WebInfo/WebInfo";
 
@@ -16,9 +17,11 @@ const Home = () => {
             <Partner></Partner>
             <PopularClasses></PopularClasses>
             <Reviews></Reviews>
+
             <WebInfo></WebInfo>
             <BecomeTeacher></BecomeTeacher>
             <BookLive></BookLive>
+            <RecentBlogs/>
             <MeetTeacher></MeetTeacher>
            
             

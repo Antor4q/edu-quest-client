@@ -20,6 +20,9 @@ import Payment from "../components/Payment";
 import ClassDetail from "../pages/Dashboard/Teacher/ClassDetail/ClassDetail";
 import MyEnrollClassDetail from "../pages/Dashboard/Student/MyEnrollClassDetail";
 import MyClassModal from "../pages/Dashboard/Teacher/MyClass/MyClassModal";
+import Statics from "../pages/Dashboard/Statics/Statics";
+import Blogs from "../pages/Blogs/Blogs";
+
 
 
 
@@ -32,6 +35,7 @@ export const router = createBrowserRouter([
             path: "/",
             element: <Home></Home>
         },
+      
         {
             path: "allClasses",
             element: <AllClasses></AllClasses>,
@@ -50,6 +54,10 @@ export const router = createBrowserRouter([
             element: <PrivateRoute><TechOnSkillPath></TechOnSkillPath></PrivateRoute>
         },
         {
+          path: "blogs",
+          element: <Blogs/>
+        },
+        {
           path: "signIn",
           element: <SignIn></SignIn>
         },
@@ -63,6 +71,10 @@ export const router = createBrowserRouter([
       path : "dashboard",
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
+        {
+          path : "statics",
+          element: <Statics/>
+        },
       
         {
           path: "users",
