@@ -1,8 +1,9 @@
 # EduQuest
 
-Admin-email : ahmed@gmail.com
-Admin-pass : AhmedAntor
-Live-link: https://skillpath-ce375.web.app
+
+###Live-link: https://skillpath-ce375.web.app
+
+Server site link: https://github.com/Antor4q/edu-quest-server
 
 EduQuest is an educational user frinedly platfrom. EduQuest will revolutionize the way educational institutions,
 tutors, and students interact, making skill learning and class management more efficient and accessible than ever before. 
@@ -59,4 +60,12 @@ Technologys :
         7. react hook form
 
         
-      
+ Getting Started -
+
+   1. Clone the repository: https://github.com/Antor4q/edu-quest-client.git
+
+   2. Install dependencies: npm install
+
+   3. Set up environment variables: Create a .env file in the root directory. add firebse config keys. If you want test this also add stripe key and imgbb key.
+
+   4. Run the application: npm run dev
