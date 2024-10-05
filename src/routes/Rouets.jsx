@@ -72,7 +72,7 @@ export const router = createBrowserRouter([
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         {
-          path : "statics",
+          path : "/dashboard",
           element: <Statics/>
         },
       
