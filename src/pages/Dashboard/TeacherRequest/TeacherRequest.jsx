@@ -45,7 +45,7 @@ const TeacherRequest = () => {
         <div>
            
             <TitleSection icon={<FaUsersCog />} subHeading={'Teacher Request'} heading={'Overview of All Requested Teachers'}></TitleSection>
-            <div className=" p-10 mt-10 rounded-lg bg-base-200  lg:mx-8">
+            <div className=" p-10 mt-10 rounded-lg bg-white  lg:mx-8">
                 
                 <div className="overflow-x-auto">
                     <table className="table">

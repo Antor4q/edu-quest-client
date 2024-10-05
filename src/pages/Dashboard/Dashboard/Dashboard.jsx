@@ -1,7 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
 import useRole from "../../../hooks/useRole";
 import UserRoute from "../../../components/UserRoute";
-
+import logo from "../../../../public/logo2.png"
+import { IoNotifications, IoSearch, IoSettings } from "react-icons/io5";
+import { MdDarkMode } from "react-icons/md";
+import { AiOutlineMessage } from "react-icons/ai";
 
 
 
@@ -23,17 +26,35 @@ const Dashboard = () => {
                         <Link to="/" className="text-xl lg:hidden font-bold">EduQuest</Link>
                         </div>
 
-                <div className="w-[340px] lg:block hidden text-white  min-h-screen px-9 py-12 bg-gray-900 ">
+                <div className="w-[300px] bg-white fixed lg:px-10 lg:block hidden   min-h-screen px-9 py-12  ">
                         
-                <Link to="/" className="text-xl  font-bold">EduQuest</Link>
+                 <Link to="/" className="lg:text-xl lg:mr-24 flex items-center text-center relative"><div className=""> <img className="min-w-[150px]     md:min-w-[150px]" src={logo} alt="" /></div></Link>
                   <div className="mt-5">
                       <ul className="menu menu-vertical pl-0">
                             <UserRoute role={userRole?.role}></UserRoute>
                       </ul>
                   </div>
+                  <div className="lg:mt-[300px]">
+                    <p className="text- font-medium text-gray-400">EduQuest admin dashboard</p>
+                    <p className="  text-gray-300 mt-4">© 2024 eduQuest. All Rights Reserved.</p>
+                  </div>
                 </div>
-                <div className="flex-1 px-4 lg:px-0  ">
-                   <Outlet></Outlet>
+                <div className="flex-1 lg:w-[1600px] bg-base-200">
+                    <div className="bg-white py-6 flex justify-around z-20  lg:ml-[300px] w-full px-10 fixed">
+                        <label className="input input-bordered bg-base-200 w-3/12 flex items-center gap-2">
+                        <input type="text" className="grow " placeholder="Search" />
+                        <IoSearch/>
+                        </label>
+                        <div className="flex items-center text-2xl font-semibold gap-5">
+                        <MdDarkMode />
+                        <AiOutlineMessage />
+                        <IoNotifications />
+                        <IoSettings />
+                        </div>
+                    </div>
+                  <div className="bg-base-200  lg:ml-[300px] lg:mt-[150px]    px-4 lg:px-10 ">
+                  <Outlet></Outlet>
+                  </div>
                 </div>
             </div>
         </div>

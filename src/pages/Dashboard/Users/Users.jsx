@@ -63,7 +63,7 @@ const Users = () => {
                     <IoSearch />
                     </label>
               </div>
-            <div className="lg:w-3/4 lg:min-h-[750px] p-10 m-10 rounded-lg  bg-base-200  lg:mx-auto">
+             <div className="lg:w-3/4 lg:min-h-[750px] p-10 m-10 rounded-lg  bg-white  lg:mx-auto">
                  <div className="flex justify-evenly">
                     <h2 className="text-2xl font-semibold">Total Users : {data?.length}</h2>
                 

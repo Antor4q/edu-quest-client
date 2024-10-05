@@ -5,11 +5,11 @@ import StudentRoute from "./StudentRoute";
 
 const UserRoute = ({ role}) => {
     return (
-        <ul className="menu menu-vertical pl-0">
+        <ul className="menu gap-3 menu-vertical font-medium text-base pl-0">
           {role === 'Admin' && <AdminRoute  />}
           {role === 'Teacher' && <TeacherRoute  />}
           {role === 'Student' && <StudentRoute />}
-    </ul>
+        </ul>
     );
 };
 

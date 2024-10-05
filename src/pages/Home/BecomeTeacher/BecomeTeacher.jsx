@@ -5,7 +5,7 @@ import { GiTeacher } from "react-icons/gi";
 
 const BecomeTeacher = () => {
     return (
-        <div className="bg-no-repeat  text-center md:text-start  backdrop-blur-md my-16 lg:my-24 hero  bg-center bg-cover" style={{backgroundImage: `url(${group})`}}>
+        <div className="bg-no-repeat bg-fixed  text-center md:text-start  backdrop-blur-md my-16 lg:my-24 hero  bg-center bg-cover" style={{backgroundImage: `url(${group})`}}>
             <div className="hero-overlay bg-opacity-80 bg-gray-900"></div>
             <div className="flex px-3 py-10 md:py-0 lg:px-0 gap-8 lg:max-w-[1440px] mx-auto">
                 <div className="md:w-3/5 hidden md:flex">

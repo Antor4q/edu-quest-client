@@ -50,7 +50,7 @@ const AdminAllClass = () => {
         <div>
            
         <TitleSection icon={<FaVideo />} subHeading={'All classes'} heading={'Overview of All Classes'}></TitleSection>
-        <div className=" p-8 my-10 rounded-lg bg-base-200 mx-8 ">
+        <div className=" p-8 my-10 rounded-lg bg-white mx-8 ">
             
             <div className="overflow-x-auto">
                 <table className="table">
