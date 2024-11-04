@@ -1,6 +1,8 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import PropTypes from "prop-types"
+import load from "../../public/loading.json"
+import Lottie from "lottie-react";
 const PrivateRoute = ({children}) => {
     const {user,loading} = useAuth()
     const location = useLocation()
@@ -8,7 +10,7 @@ const PrivateRoute = ({children}) => {
     if(loading){
         return  <>
         <div className="flex max-w-screen h-screen items-center text-center justify-center">
-        <progress className="progress w-56"></progress>
+         <Lottie animationData={load}/>
         </div>
         </>
     }

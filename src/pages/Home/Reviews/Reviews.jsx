@@ -8,8 +8,9 @@ import { Navigation, Pagination } from 'swiper/modules';
 import TitleSection from "../../../shared/TitleSection/TitleSection";
 import { RiFeedbackFill } from "react-icons/ri";
 import { useQuery } from "@tanstack/react-query";
-
+import load from "../../../../public/loading.json"
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import Lottie from 'lottie-react';
 
 const Reviews = () => {
    
@@ -27,7 +28,7 @@ const Reviews = () => {
     if(isPending){
         return   <>
         <div className="flex max-w-screen h-screen items-center text-center justify-center">
-        <progress className="progress w-56"></progress>
+        <Lottie animationData={load}/>
         </div>
         </>
     }

@@ -2,8 +2,24 @@ import ReactApexChart from "react-apexcharts";
 import { PiChalkboardTeacherFill, PiUsersFour } from "react-icons/pi";
 import { FaBookReader, FaDollarSign } from "react-icons/fa";
 import ProUsers from "../../../components/ProUsers";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import load from "../../../../public/loading.json"
+import Lottie from "lottie-react";
 
 const Statics = () => {
+    const axiosPub = useAxiosPublic()
+    const {data,isLoading} = useQuery({
+      
+        queryKey : ['enrolled'],
+        queryFn : async()=>{
+            const {data} = await axiosPub.get("/adminStatic")
+            return data
+        }
+    })
+ 
+   
+    
     const pieChart = {
         series: [44, 55, 41, 17, 15],
         options: {
@@ -102,6 +118,12 @@ const Statics = () => {
     },
     };
 
+ 
+  if(isLoading){
+     <div className="flex max-w-screen h-screen items-center text-center justify-center">
+        <Lottie animationData={load}/>
+        </div>
+  }
 
     return (
         <div >
@@ -110,8 +132,8 @@ const Statics = () => {
                 <div className="flex gap-3 shadow-lg rounded-lg text-white items-center bg-pink-500 p-8">
                     <p className="bg-white rounded-full p-5"><FaDollarSign className="text-black text-xl" /></p>
                     <div>
-                        <h4 className="text-xl font-medium uppercase">Fees Collection</h4>
-                        <h4 className="text-xl font-semibold my-2">3280</h4>
+                        <h4 className="text-xl font-medium uppercase">Total Earnings</h4>
+                        <h4 className="text-xl font-semibold my-2">${data?.totalPrice}</h4>
                         <p>80% increase in 20 days</p>
                     </div>
                 </div>
@@ -120,7 +142,7 @@ const Statics = () => {
                     <p className="bg-white rounded-full p-5"><PiChalkboardTeacherFill className="text-black text-xl" /></p>
                     <div>
                         <h4 className="text-xl font-medium uppercase">Total Teachers</h4>
-                        <h4 className="text-xl font-semibold my-2">3280</h4>
+                        <h4 className="text-xl font-semibold my-2">{data?.totalTeachers}</h4>
                         <p>80% increase in 20 days</p>
                     </div>
                 </div>
@@ -129,7 +151,7 @@ const Statics = () => {
                     <p className="bg-white rounded-full p-5"><PiUsersFour className="text-black text-xl" /></p>
                     <div>
                         <h4 className="text-xl font-medium uppercase">Total Users</h4>
-                        <h4 className="text-xl font-semibold my-2">3280</h4>
+                        <h4 className="text-xl font-semibold my-2">{data?.totalStudents}</h4>
                         <p>80% increase in 20 days</p>
                     </div>
                 </div>
@@ -138,7 +160,7 @@ const Statics = () => {
                     <p className="bg-white rounded-full p-5"><FaBookReader className="text-black text-xl" /></p>
                     <div>
                         <h4 className="text-xl font-medium uppercase">Total Course</h4>
-                        <h4 className="text-xl font-semibold my-2">3280</h4>
+                        <h4 className="text-xl font-semibold my-2">{data?.totalClasses}</h4>
                         <p>80% increase in 20 days</p>
                     </div>
                 </div>

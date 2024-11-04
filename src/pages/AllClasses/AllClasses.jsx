@@ -7,8 +7,9 @@ import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import usePagination from "../../hooks/usePagination";
-
+import load from "../../../public/loading.json"
 import useTotalCounts from "../../hooks/useTotalCounts";
+import Lottie from "lottie-react";
 
 
 const AllClasses = () => {
@@ -50,7 +51,7 @@ const AllClasses = () => {
     if(loaded || isPending ){
         return  <>
         <div className="flex max-w-screen h-screen items-center text-center justify-center">
-        <progress className="progress w-56"></progress>
+        <Lottie animationData={load}/>
         </div>
         </>
     }

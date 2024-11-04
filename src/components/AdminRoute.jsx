@@ -10,14 +10,71 @@ import { MdOutlineCreateNewFolder } from "react-icons/md";
 const AdminRoute = () => {
     return (
         <>
-        <li><NavLink className="flex hover:bg-[#2f82ff95] items-center gap-2" style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/dashboard"><RiArrowTurnForwardFill /> Statics</NavLink></li>
-        <li><NavLink className="flex hover:bg-[#2f82ff95] items-center gap-2" style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/dashboard/teacherRequest"><PiChalkboardTeacherFill /> Teacher Request</NavLink></li>
-        <li><NavLink className="flex hover:bg-[#2f82ff95] items-center gap-2" style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/dashboard/users"><FaUsers /> Users</NavLink></li>
-        <li><NavLink className="flex hover:bg-[#2f82ff95] items-center gap-2" style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/dashboard/all-classes"><SiHyperskill /> All Classes</NavLink></li>
-        <li><NavLink className="flex hover:bg-[#2f82ff95] items-center gap-2" style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/dashboard/blogs"><FaBloggerB /> Blogs</NavLink></li>
-        <li><NavLink className="flex hover:bg-[#2f82ff95] items-center gap-2" style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/dashboard/blogs"><MdOutlineCreateNewFolder /> Publish blog</NavLink></li>
-        <li><NavLink className="flex hover:bg-[#2f82ff95] items-center gap-2" style={({isActive})=> isActive? {color: "#0D6EFD",background:"none"}:{}} to="/dashboard/profile"><CgProfile /> Profile</NavLink></li>
-     </>
+            <li>
+                <NavLink 
+                    className="flex hover:bg-[#2f82ff95] items-center gap-2" 
+                    style={({ isActive }) => isActive ? { color: "#0D6EFD", background: "none" } : {}} 
+                    to="/dashboard" 
+                    end
+                >
+                    <RiArrowTurnForwardFill /> Statics
+                </NavLink>
+            </li>
+            <li>
+                <NavLink 
+                    className="flex hover:bg-[#2f82ff95] items-center gap-2" 
+                    style={({ isActive }) => isActive ? { color: "#0D6EFD", background: "none" } : {}} 
+                    to="/dashboard/teacherRequest"
+                >
+                    <PiChalkboardTeacherFill /> Teacher Request
+                </NavLink>
+            </li>
+            <li>
+                <NavLink 
+                    className="flex hover:bg-[#2f82ff95] items-center gap-2" 
+                    style={({ isActive }) => isActive ? { color: "#0D6EFD", background: "none" } : {}} 
+                    to="/dashboard/users"
+                >
+                    <FaUsers /> Users
+                </NavLink>
+            </li>
+            <li>
+                <NavLink 
+                    className="flex hover:bg-[#2f82ff95] items-center gap-2" 
+                    style={({ isActive }) => isActive ? { color: "#0D6EFD", background: "none" } : {}} 
+                    to="/dashboard/all-classes"
+                >
+                    <SiHyperskill /> All Classes
+                </NavLink>
+            </li>
+            <li>
+                <NavLink 
+                    className="flex hover:bg-[#2f82ff95] items-center gap-2" 
+                    style={({ isActive }) => isActive ? { color: "#0D6EFD", background: "none" } : {}} 
+                    to="/dashboard/blogs"
+                >
+                    <FaBloggerB /> Blogs
+                </NavLink>
+            </li>
+            <li>
+                <NavLink 
+                    className="flex hover:bg-[#2f82ff95] items-center gap-2" 
+                    style={({ isActive }) => isActive ? { color: "#0D6EFD", background: "none" } : {}} 
+                    to="/dashboard/publish-blog"
+                >
+                    <MdOutlineCreateNewFolder /> Publish Blog
+                </NavLink>
+            </li>
+            <li>
+                <NavLink 
+                    className="flex hover:bg-[#2f82ff95] items-center gap-2" 
+                    style={({ isActive }) => isActive ? { color: "#0D6EFD", background: "none" } : {}} 
+                    to="/dashboard/profile"
+                >
+                    <CgProfile /> Profile
+                </NavLink>
+            </li>
+        </>
     );
 };
 

@@ -4,12 +4,13 @@ import 'swiper/css/navigation';
 import 'swiper/css';
 
 import { Navigation, Pagination } from 'swiper/modules';
-
+import load from "../../../../public/loading.json"
 
 import TitleSection from '../../../shared/TitleSection/TitleSection';
 import { FaBook } from 'react-icons/fa6';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import Lottie from 'lottie-react';
 
 
 const PopularClasses = () => {
@@ -27,7 +28,7 @@ const PopularClasses = () => {
   if(isPending){
     return  <>
     <div className="flex max-w-screen h-screen items-center text-center justify-center">
-    <progress className="progress w-56"></progress>
+    <Lottie animationData={load}/>
     </div>
     </>
   }

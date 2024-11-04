@@ -20,8 +20,9 @@ import Payment from "../components/Payment";
 import ClassDetail from "../pages/Dashboard/Teacher/ClassDetail/ClassDetail";
 import MyEnrollClassDetail from "../pages/Dashboard/Student/MyEnrollClassDetail";
 import MyClassModal from "../pages/Dashboard/Teacher/MyClass/MyClassModal";
-import Statics from "../pages/Dashboard/Statics/Statics";
 import Blogs from "../pages/Blogs/Blogs";
+import StaticValided from "../components/StaticValided";
+
 
 
 
@@ -73,7 +74,7 @@ export const router = createBrowserRouter([
       children: [
         {
           path : "/dashboard",
-          element: <Statics/>
+          element: <StaticValided/>
         },
       
         {
